@@ -1,0 +1,1 @@
+	<label>CADASTRAR CURSO</label>

@@ -1,0 +1,96 @@
+@charset "ISO-8859-1";
+/*
+.content-wrapper .add-btn {
+	margin: 5px;
+	padding: 10px;
+	float: right;
+	border-radius: 50%;
+	width: 50px;
+	height: 50px;
+	cursor: pointer;
+	background: #1784c7;
+}
+.content-wrapper .add-btn a {
+	text-decoration: none;
+	text-align: center;
+	position: relative;
+	top: -8px;
+	left: 3px;
+	color: #fff;
+	text-align: center;
+	font-weight: bold;
+	font-size: 32pt;
+}
+.content-wrapper .add-btn a:hover {
+	text-decoration: none;
+	color: #fff;			
+}
+*/
+.content-wrapper #container {
+	margin: 10px;
+	padding: 10px;
+	width: 100%;
+	height: 100%;
+	background-color: #FFFFFF !important;
+}
+
+.content-wrapper label {
+	font-size: 15px;
+	margin-top: 10px;
+	padding: 10px;
+	font-size: 20px;
+}
+
+.content-wrapper select {
+	font-size: 15px;
+}
+
+.content-wrapper #botao {
+	margin-top: 20px;
+	margin-left: 10px;
+	padding: 10px;
+	width: 100px;
+	text-align: center;
+}
+
+.content-wrapper #botoes {
+	text-align: right;
+	margin-right: 15px;
+	
+}
+
+.content-wrapper #erro {
+	font-size: 15px;
+	text-align: left;
+	margin: 10px;
+}
+
+.content-wrapper thead {
+	font-size: 20px;
+}
+
+.content-wrapper tbody {
+	font-size: 15px;
+}
+
+@media (max-width: 780px) {
+	.content-wrapper #botao {
+		margin-top: 20px;
+		margin-left: 10px;
+		padding: 10px;
+		width: 100%;
+		text-align: center;
+	}
+
+	.content-wrapper #botoes {
+		text-align: center;
+	}
+	
+    .content-wrapper thead {
+		font-size: 15px;
+	}
+
+	.content-wrapper tbody {
+		font-size: 10px;
+	}
+}
