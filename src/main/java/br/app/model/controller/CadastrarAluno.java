@@ -37,7 +37,7 @@ public class CadastrarAluno extends HttpServlet {
 		
 			//criando um objeto do tipo aluno com os dados assim
 			Aluno aluno = new Aluno();
-			aluno.setRgm(rgm);
+			aluno.setRgm(Integer.parseInt(rgm));
 			aluno.setNome(nome.toUpperCase());
 			aluno.setTurma(turma.toUpperCase());
 			aluno.setPeriodo(periodo.toUpperCase());

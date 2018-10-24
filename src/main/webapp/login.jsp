@@ -5,7 +5,6 @@
 <title>Login</title>
 <link rel="stylesheet" href="css/login.css">
 <link rel="stylesheet" href="webjars/bootstrap/4.1.3/dist/css/bootstrap.min.css">
-<link rel="stylesheet" href="webjars/bootstrap/4.1.3/dist/css/bootstrap-theme.min.css">
 <link href="https://fonts.googleapis.com/css?family=Charmonman:700" rel="stylesheet">
 
 </head>

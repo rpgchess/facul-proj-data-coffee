@@ -7,19 +7,28 @@
 		      <th scope="col">Nome</th>
 		      <th scope="col">Turma</th>
 		      <th scope="col">Periodo</th>
-		      <th colspan="2">Controle</th>
+		      <th scope="col">Controle</th>
 		    </tr>
 		</thead>
-		<tbody>
+		<tbody class="innerHTML">
 			<c:forEach items="${alunos}" var="aluno">
-		    	<tr>
-			      <td> ${aluno.rgm} </td>
-			      <td> ${aluno.nome} </td>
-			      <td> ${aluno.turma} </td>
-			      <td> ${aluno.periodo} </td>
-			      <td> <a id=botao class="btn btn-primary" href="editar?rgm=${aluno.rgm}">Editar</a> </td>
-				  <td> <a id=botao class="btn btn-primary" href="excluir-aluno?rgm=${aluno.rgm}">Excluir</a> </td>
-		    	</tr>
+		    	<script language="Javascript">
+					$.get("http://localhost:9999/consultar-alunos", function(alunos) {
+         				console.log(alunos);
+	         			$.each(alunos,function(a, aluno){
+    	        			var item = "<tr>"
+    	           			item += "<td>"+ aluno.rgm +"</td>";
+	        		   		item += "<td>"+ aluno.nome +"</td>";
+    		    	   		item += "<td>"+ aluno.turma +"</td>";
+	    	          		item += "<td>"+ aluno.periodo +"</td>";
+	    	          		item += "<td>"
+	        	    		item += "<a id=botao class='btn btn-primary' href='editar?rgm="+aluno.rgm+"'>Editar</a>";
+				    		item += "<a id=botao class='btn btn-primary' href='excluir-aluno?rgm="+aluno.rgm+"'>Excluir</a>";
+	        	      		item += "</td></tr>"
+                			$('.innerHTML').append(item);
+                		});
+    				});
+				</script>
 	    	</c:forEach>
 		</tbody>
 	</table>

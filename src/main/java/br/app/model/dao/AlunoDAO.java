@@ -19,7 +19,7 @@ public class AlunoDAO {
 			//2º Preparar o comando SQL a ser executado
 			String sql = "INSERT INTO aluno VALUES (?, ?, ?, ?)";
 			PreparedStatement cmd = con.prepareStatement(sql);
-			cmd.setString(1, aluno.getRgm());
+			cmd.setInt(1, aluno.getRgm());
 			cmd.setString(2, aluno.getNome());
 			cmd.setString(3, aluno.getTurma());
 			cmd.setString(4, aluno.getPeriodo());
@@ -48,7 +48,7 @@ public class AlunoDAO {
 			cmd.setString(1, aluno.getNome());
 			cmd.setString(2, aluno.getTurma());
 			cmd.setString(3, aluno.getPeriodo());
-			cmd.setString(3, aluno.getRgm());
+			cmd.setInt(3, aluno.getRgm());
 			
 			//3º Executar o comando SQL
 			cmd.executeUpdate();
@@ -63,7 +63,7 @@ public class AlunoDAO {
 
 	}
 	
-	public void delete(String rgm) {
+	public void delete(int rgm) {
 		try {
 			
 			//1º Abrir uma conexão
@@ -72,7 +72,7 @@ public class AlunoDAO {
 			//2º Preparar o comando SQL a ser executado
 			String sql = "DELETE FROM aluno WHERE rgm = ?";
 			PreparedStatement cmd = con.prepareStatement(sql);
-			cmd.setString(1, rgm);
+			cmd.setInt(1, rgm);
 			
 			//3º Executar o comando SQL
 			cmd.executeUpdate();
@@ -86,7 +86,7 @@ public class AlunoDAO {
 		}
 	}	
 	
-	public Aluno findByRgm(String rgm) {
+	public Aluno findByRgm(int rgm) {
 		try {
 			//1º Abrir conexão
 			Connection con = ConnectionFactory.getConnection();
@@ -94,7 +94,7 @@ public class AlunoDAO {
 			//2º Preparar o comando SQL a ser executado
 			String sql = "SELECT * FROM aluno WHERE rgm = ?";
 			PreparedStatement cmd = con.prepareStatement(sql);
-			cmd.setString(1, rgm);
+			cmd.setInt(1, rgm);
 			
 			//3ºA Execução do comando SQL
 			//3ºB obtenção dos dados 
@@ -106,7 +106,7 @@ public class AlunoDAO {
 			
 			if (rs.next()) { //Tem registro?
 				aluno = new Aluno();
-				aluno.setRgm(rs.getString("rgm"));
+				aluno.setRgm(rs.getInt("rgm"));
 				aluno.setNome(rs.getString("nome"));
 				aluno.setTurma(rs.getString("turma"));
 				aluno.setPeriodo(rs.getString("periodo"));
@@ -146,7 +146,7 @@ public class AlunoDAO {
 			while (rs.next()) { //Enquanto houver registro....
 				//Cria um objeto aluno
 				Aluno aluno = new Aluno();
-				aluno.setRgm(rs.getString("rgm"));
+				aluno.setRgm(rs.getInt("rgm"));
 				aluno.setNome(rs.getString("nome"));
 				aluno.setTurma(rs.getString("turma"));
 				aluno.setPeriodo(rs.getString("periodo"));

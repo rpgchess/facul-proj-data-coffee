@@ -2,7 +2,7 @@ package br.app.model.domain;
 
 public class Aluno {
 	
-	private String rgm;
+	private int rgm;
 	private String nome;
 	private String turma;
 	private String periodo;
@@ -10,18 +10,18 @@ public class Aluno {
 	public Aluno() {
 	}
 	
-	public Aluno(String rgm, String nome, String turma, String periodo) {
+	public Aluno(int rgm, String nome, String turma, String periodo) {
 		this.rgm = rgm;
 		this.nome = nome;
 		this.turma = turma;
 		this.periodo = periodo;
 	}
 
-	public String getRgm() {
+	public int getRgm() {
 		return rgm;
 	}
 
-	public void setRgm(String rgm) {
+	public void setRgm(int rgm) {
 		this.rgm = rgm;
 	}
 

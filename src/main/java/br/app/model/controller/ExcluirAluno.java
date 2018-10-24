@@ -16,7 +16,7 @@ public class ExcluirAluno extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String rgm = request.getParameter("rgm");
-		new AlunoDAO().delete(rgm);
+		new AlunoDAO().delete(Integer.parseInt(rgm));
 		
 		response.sendRedirect("consultar-alunos");
 	}
