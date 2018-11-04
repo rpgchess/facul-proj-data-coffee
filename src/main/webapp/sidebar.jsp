@@ -43,9 +43,9 @@
 			</ul>
 		</li>
 	</ul>
-	<ul>
+	<!-- <ul>
 		<li class="cd-label calendar">Calendário</li>
 		<li class="action-btn"><a href="#">Abrir Calendário</a></li>
-	</ul>
+	</ul> -->
 	<br>
 </nav> <!-- .cd-side-nav -->

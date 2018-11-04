@@ -23,12 +23,12 @@ public class ConsultarAlunos extends HttpServlet {
 		//List<Aluno> alunos = new AlunoDAO().findAll();
 		List<Aluno> alunos = new ArrayList<>();
 		
-		alunos.add(new Aluno(18426581,"Claudio","3ºB","Noturno"));
-		alunos.add(new Aluno(12345678,"Davi","3ºB","Noturno"));
-		alunos.add(new Aluno(87654321,"Beatriz","3ºB","Noturno"));
-		alunos.add(new Aluno(12378654,"Lucas","3ºB","Noturno"));
-		alunos.add(new Aluno(32145687,"Rafael","3ºB","Noturno"));
-		alunos.add(new Aluno(65487321,"Renan","3ºB","Noturno"));
+		alunos.add(new Aluno(18508774,"Beatriz Martins Barbosa Filho","3ºB","Noturno"));
+		alunos.add(new Aluno(18426581,"Claudio Almeida Martins","3ºB","Noturno"));
+		alunos.add(new Aluno(18262066,"Davi Lourenço Motav","3ºB","Noturno"));
+		alunos.add(new Aluno(18398537,"Lucas Santos Amaral","3ºB","Noturno"));
+		alunos.add(new Aluno(18269613,"Rafael Azzi Patricio","3ºB","Noturno"));
+		alunos.add(new Aluno(18555471,"Renan Afonso Valentim","3ºB","Noturno"));
 				
 		//Passando o objeto alunos como atributo para ser listado no JSP
 		//request.setAttribute("alunos", alunos);

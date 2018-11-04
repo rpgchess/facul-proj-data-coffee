@@ -3,17 +3,22 @@
 	<table class="table table-striped">
 		<thead class="thead-light ">
 		    <tr>
-		      <th scope="col">Curso</th>
-		      <th colspan="2">Controle</th>
+		    	<th scope="col">Abrev.</th>
+			    <th scope="col">Curso</th>
+			    <th scope="col">Categoria</th>
+		    	<th scope="col">Controle</th>
 		    </tr>
 		</thead>
 		<tbody>
 			<c:forEach items="${alunos}" var="aluno">
 		    	<tr>
-			      <td> ${curso.nome} </td>
-			      <td> <a id=botao class="btn btn-primary" href="editar?id=${curso.id}">Editar</a> </td>
-				  <td> <a id=botao class="btn btn-primary" href="excluir-curso?id=${curso.id}">Excluir</a> </td>
-		    	</tr>
+		    		<td>ADS</td>
+			    	<td>Analise e Desenvolvimento de Sistemas</td>
+			    	<td>Informática</td>
+			    	<td>
+			      		<a id=botao class="btn btn-lg btn-primary" href="editar?id=${curso.id}">Editar</a>
+				  		<a id=botao class="btn btn-lg btn-primary" href="excluir-curso?id=${curso.id}">Excluir</a>
+					</td>
 	    	</c:forEach>
 		</tbody>
 	</table>
