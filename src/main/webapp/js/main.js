@@ -1,144 +1,105 @@
-jQuery(document).ready(function(){
-	//cache DOM elements
-	var mainContent = $('.cd-main-content'),
-		header = $('.cd-main-header'),
-		sidebar = $('.cd-side-nav'),
-		sidebarTrigger = $('.cd-nav-trigger'),
-		topNavigation = $('.cd-top-nav'),
-		searchForm = $('.cd-search'),
-		accountInfo = $('.account'),
-		contentPage = $('.content-wrapper');
-
-	//on resize, move search and top nav position according to window width
-	var resizing = false;
-	moveNavigation();
-	$(window).on('resize', function(){
-		if( !resizing ) {
-			(!window.requestAnimationFrame) ? setTimeout(moveNavigation, 300) : window.requestAnimationFrame(moveNavigation);
-			resizing = true;
-		}
-	});
-
-	//on window scrolling - fix sidebar nav
-	var scrolling = false;
-	checkScrollbarPosition();
-	$(window).on('scroll', function(){
-		if( !scrolling ) {
-			(!window.requestAnimationFrame) ? setTimeout(checkScrollbarPosition, 300) : window.requestAnimationFrame(checkScrollbarPosition);
-			scrolling = true;
-		}
-	});
-
-	//mobile only - open sidebar when user clicks the hamburger menu
-	sidebarTrigger.on('click', function(event){
-		event.preventDefault();
-		$([sidebar, sidebarTrigger]).toggleClass('nav-is-visible');
-	});
-
-	//click on item and show submenu
-	$('.has-children > a').on('click', function(event){
-		var mq = checkMQ(),
-			selectedItem = $(this);
-		if( mq == 'mobile' || mq == 'tablet' ) {
-			event.preventDefault();
-			if( selectedItem.parent('li').hasClass('selected')) {
-				selectedItem.parent('li').removeClass('selected');
-			} else {
-				sidebar.find('.has-children.selected').removeClass('selected');
-				accountInfo.removeClass('selected');
-				selectedItem.parent('li').addClass('selected');
-			}
-		}
-	});
-
-	//click on account and show submenu - desktop version only
-	accountInfo.children('a').on('click', function(event){
-		var mq = checkMQ(),
-			selectedItem = $(this);
-		if( mq == 'desktop') {
-			event.preventDefault();
-			accountInfo.toggleClass('selected');
-			sidebar.find('.has-children.selected').removeClass('selected');
-		}
-	});
+(function (angular){
+	'use strict';
 	
-	$('.a-click').children('a').on('click', function(event){
-		var href = $(this).attr('href');
-		event.preventDefault();
-		$.ajax({
-	        url: href,
-	        dataType: 'html',
-	        success: function (html) {
-	            contentPage.html(html);
-			}
-	    });
-	});
+var app = angular.module('dataCoffee', ['ngRoute']);
 
-	$(document).on('click', function(event){
-		if( !$(event.target).is('.has-children a') ) {
-			sidebar.find('.has-children.selected').removeClass('selected');
-			accountInfo.removeClass('selected');
-			filterInfo.removeClass('selected');
-		}
-	});
-
-	//on desktop - differentiate between a user trying to hover over a dropdown item vs trying to navigate into a submenu's contents
-	sidebar.children('ul').menuAim({
-        activate: function(row) {
-        	$(row).addClass('hover');
-        },
-        deactivate: function(row) {
-        	$(row).removeClass('hover');
-        },
-        exitMenu: function() {
-        	sidebar.find('.hover').removeClass('hover');
-        	return true;
-        },
-        submenuSelector: ".has-children",
-    });
-
-	function checkMQ() {
-		//check if mobile or desktop device
-		return window.getComputedStyle(document.querySelector('.cd-main-content'), '::before').getPropertyValue('content').replace(/'/g, "").replace(/"/g, "");
-	}
-
-	function moveNavigation(){
-  		var mq = checkMQ();
-        
-        if ( mq == 'mobile' && topNavigation.parents('.cd-side-nav').length == 0 ) {
-        	detachElements();
-			topNavigation.appendTo(sidebar);
-			searchForm.removeClass('is-hidden').prependTo(sidebar);
-		} else if ( ( mq == 'tablet' || mq == 'desktop') &&  topNavigation.parents('.cd-side-nav').length > 0 ) {
-			detachElements();
-			searchForm.insertAfter(header.find('.cd-logo'));
-			topNavigation.appendTo(header.find('.cd-nav'));
-		}
-		checkSelected(mq);
-		resizing = false;
-	}
-
-	function detachElements() {
-		topNavigation.detach();
-		searchForm.detach();
-	}
-
-	function checkSelected(mq) {
-		//on desktop, remove selected class from items selected on mobile/tablet version
-		if( mq == 'desktop' ) $('.has-children.selected').removeClass('selected');
-	}
-
-	function checkScrollbarPosition() {
-		var mq = checkMQ();
-		
-		if( mq != 'mobile' ) {
-			var sidebarHeight = sidebar.outerHeight(),
-				windowHeight = $(window).height(),
-				mainContentHeight = mainContent.outerHeight(),
-				scrollTop = $(window).scrollTop();
-
-			( ( scrollTop + windowHeight > sidebarHeight ) && ( mainContentHeight - sidebarHeight != 0 ) ) ? sidebar.addClass('is-fixed').css('bottom', 0) : sidebar.removeClass('is-fixed').attr('style', '');
-		}
-		scrolling = false;
-	}
+// Definindo Rotas
+app.config(function($routeProvider, $locationProvider){
+	// Utilizando o HTML5 History API (TRUE)
+	$locationProvider.html5Mode(true);
+    //$locationProvider.hashPrefix("!");
+	
+	$routeProvider
+		.when("/", {controller: "listController", templateUrl: "pages/welcome.jsp"})
+		// Geral
+		.when("/notify", {controller: "listController", templateUrl: "pages/notification.jsp"})
+		.when("/about", {controller: "listController", templateUrl: "pages/about.jsp"})
+		.when("/welcome", {controller: "listController", templateUrl: "pages/welcome.jsp"})
+		.when("/perfil", {controller: "listController", templateUrl: "pages/perfil.jsp"})
+		.when("/contact", {controller: "listController", templateUrl: "pages/contact.jsp"})
+		// Coordenador
+		.when("/professor/list", {controller: "", templateUrl: "pages/list-professores.jsp"})
+		.when("/professor/new", {controller: "", templateUrl: "pages/new-professor.jsp"})
+		.when("/professor/edit:obj", {controller: "", templateUrl: "pages/new-professor.jsp"})
+		.when("/curso/list", {controller: "", templateUrl: "pages/list-cursos.jsp"})
+		.when("/curso/new", {controller: "", templateUrl: "pages/new-curso.jsp"})
+		.when("/curso/edit:obj", {controller: "", templateUrl: "pages/new-curso.jsp"})
+		.when("/categoria/list", {controller: "", templateUrl: "pages/list-categorias.jsp"})
+		.when("/categoria/new", {controller: "", templateUrl: "pages/new-categoria.jsp"})
+		.when("/categoria/edit:obj", {controller: "", templateUrl: "pages/new-categoria.jsp"})
+		// Coordenador / Professor
+		.when("/disciplina/list", {controller: "", templateUrl: "pages/list-disciplinas.jsp"})
+		.when("/disciplina/new", {controller: "", templateUrl: "pages/new-disciplina.jsp"})
+		.when("/disciplina/edit:obj", {controller: "", templateUrl: "pages/new-disciplina.jsp"})
+		// Professor
+		.when("/atividade/list", {controller: "", templateUrl: "pages/list-atividades.jsp"})
+		.when("/atividade/new", {controller: "", templateUrl: "pages/new-atividade.jsp"})
+		.when("/atividade/edit:obj", {controller: "", templateUrl: "pages/new-atividade.jsp"})
+		.when("/aluno/list", {controller: "", templateUrl: "pages/list-alunos.jsp"})
+		.when("/aluno/new", {controller: "", templateUrl: "pages/new-aluno.jsp"})
+		.when("/aluno/edit:obj", {controller: "", templateUrl: "pages/new-aluno.jsp"})
+		.when("/turma/list", {controller: "", templateUrl: "pages/list-turmas.jsp"})
+		.when("/turma/new", {controller: "", templateUrl: "pages/new-turma.jsp"})
+		.when("/turma/edit:obj", {controller: "", templateUrl: "pages/new-turma.jsp"})
+		.when("/periodo/list", {controller: "", templateUrl: "pages/list-periodos.jsp"})
+		.when("/periodo/new", {controller: "", templateUrl: "pages/new-periodo.jsp"})
+		.when("/periodo/edit:obj", {controller: "", templateUrl: "pages/new-periodo.jsp"})
+		.when("/report/professor", {controller: "", templateUrl: "pages/reports.jsp"})
+		// Aluno
+		.when("/aluno/verify", {controller: "", templateUrl: "pages/valid-aluno.jsp"})
+		.when("/aluno/make", {controller: "", templateUrl: "pages/make-aluno.jsp"})
+		.when("/aluno/make:obj", {controller: "", templateUrl: "pages/make-aluno.jsp"})
+		.when("/grupo/list", {controller: "", templateUrl: "pages/list-grupos.jsp"})
+		.when("/grupo/new", {controller: "", templateUrl: "pages/new-grupo.jsp"})
+		.when("/grupo/edit:obj", {controller: "", templateUrl: "pages/new-grupo.jsp"})
+		.when("/report/aluno", {controller: "", templateUrl: "pages/reports.jsp"})
+		.otherwise({redirectTo: "/"});
 });
+
+app.run(function($rootScope, $location) {
+    $rootScope.wines = [{
+	        name: "Pintas Douro",
+	        year: 2013,
+	        type: "Tinto",
+	        price: "R$ 768.00"
+	    }, {
+	    	name: "Amado Sur Trivento",
+	        year: 2011,
+	        type: "Tinto",
+	        price: "R$ 54.80"
+	    }, {
+	    	name: "Guru Douro Branco",
+	        year: 2014,
+	        type: "Tinto",
+	        price: "R$ 348,00"
+    }];
+	
+	$rootScope.home = function (){
+		$location.path('/');
+	};
+});
+
+app.controller('listController', ['$scope', '$routeParams', '$rootScope', '$route', '$location', function listController($scope, $routeParams, $routeScope, $route, $location) {
+
+}]);
+
+app.controller('editController', ['$scope', '$routeParams', '$rootScope', '$route', '$location', function editController($scope, $routeParams, $routeScope, $route, $location) {
+	$scope.wine = $routeParams.obj;
+	$scope.wineIndex = $scope.wines.indexOf($scope.wine);
+	
+	$scope.salvar = function (){
+		$scope.wines[$scope.wineIndex] = $scope.wine;
+		$location.path('/');
+	};	
+}]);
+
+app.controller('newController', ['$scope', '$routeParams', '$rootScope', '$route', '$location', function newController($scope, $routeParams, $routeScope, $route, $location) {
+	$scope.wine = '';
+	
+	$scope.salvar = function (){
+		$scope.wines.push($scope.wine);
+		$location.path('/');
+	};
+}]);
+
+})(window.angular);

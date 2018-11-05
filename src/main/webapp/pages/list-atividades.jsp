@@ -1,4 +1,14 @@
-	<label>ATIVIDADES</label>
+<div class="container">
+	<form action="#" class="form-inline">
+		<div class="form-group row">
+			<div class="col-sm-6">
+				<label>ATIVIDADES</label>
+			</div>
+			<div class="col-sm-2">
+				<a class="btn btn-primary" href="atividade/new">Novo</a>
+			</div>
+		</div>
+	</form>
 	<hr>
 	<table class="table table-striped">
 		<thead class="thead-light ">
@@ -29,3 +39,4 @@
 	    	</c:forEach>
 		</tbody>
 	</table>
+</div>
