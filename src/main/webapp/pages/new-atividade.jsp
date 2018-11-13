@@ -1,65 +1,116 @@
 <div class="container">
-	<form action="#" class="form-inline">
-		<div class="form-group row">
-			<div class="col-sm-2">
-				<a class="btn btn-primary" href="atividade/list">Voltar</a>
-			</div>
-			<div class="col-sm-8">
-				<label>CADASTRAR ATIVIDADE</label>
-			</div>
+	<form novalidate class="form-inline">
+		<div class="form-group">
+			<a href="atividade/list" class="btn btn-lg btn-primary">Voltar</a>
+			<label for="title" class="control-label">CADASTRAR ATIVIDADE</label>
+			<a href="atividade/new" class="btn btn-lg btn-primary disabled">Novo</a>
 		</div>
 	</form>
-	<form method="post" action="cadastrar-atividade">
-		<div class="form-row">
-    		<div class="form-group col-sm-3 col-md-3 ">
-    			<label for="data">Data</label>
-    			<input type="date" class="form-control" name="data" id="data" value="${rgmSalvo}">
-    		</div>
-    		<div class="form-group col-sm-3 col-md-3 ">
-    			<div class="form-check">
-    				<input type="checkbox" class="form-check-input" id="data-enable">
-    				<label for="data-entrega">Data de Entrega</label>
+	<form novalidade>
+		<div class="form-row justify-content-center">
+			<div class="form-group col-3">
+				<label for="date" class="control-label">Data:</label>
+				<input type="date" name="date" placeholder="Data" class="form-control" />
+				<span class="glyphicon glyphicon-ok form-control-feedback"></span>
+				<span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+				<span class="glyphicon glyphicon-remove form-control-feedback"></span>
+				<span class="help-block"></span>
+			</div>
+			<div class="form-group col-3">
+				<div class="form-check">
+    				<input type="checkbox" name="date-able" class="form-check-input" />
+    				<label for="date-end">Entrega</label>
   				</div>
-  				<input type="date" class="form-control" name="data-entrega" id="data-entrega" value="${rgmSalvo}" readonly>
-    		</div>
-    		<div class="form-group col-sm-6 col-md-6 ">
-      			<label for="curso">Curso</label>
-   				<input type="text" class="form-control" name="curso" id="curso" value="${nomeSalvo}">
-   			</div>
+				<input type="date" name="date-end" placeholder="Entrega" readonly class="form-control" />
+				<span class="glyphicon glyphicon-ok form-control-feedback"></span>
+				<span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+				<span class="glyphicon glyphicon-remove form-control-feedback"></span>
+				<span class="help-block"></span>
+			</div>
+			<div class="form-group col">
+				<label for="curso" class="control-label">Curso:</label>
+				<!-- <select name="curso" class="form-control selectpicker" data-live-search="true"> -->
+				<select name="curso" class="form-control" searchable="Pesquisar...">
+					<optgroup label="Itens:">
+						<option value="1" selected>Analise e Desenvolvimento de Sistemas</option>
+					</optgroup>
+				</select>
+				<span class="glyphicon glyphicon-ok form-control-feedback"></span>
+				<span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+				<span class="glyphicon glyphicon-remove form-control-feedback"></span>
+				<span class="help-block"></span>
+			</div>
 		</div>
-		<div class="form-row">
-			<div class="form-group col-xs-4 col-sm-2 col-md-2">
-    			<label for="">Turma</label>
-    			<select class="form-control" name="turma-number" id="turma-number">
-      				<option selected>...</option>
-       				<option value="1">1º</option>
-					<option value="2">2º</option>
-					<option value="3">3º</option>
-					<option value="4">4º</option>
-					<option value="5">5º</option>
-    			</select>
-    		</div>
-    		<div class="form-group col-xs-4 col-sm-2 col-md-2">
-    			<label for="">(A/B/C/D/E)</label>
-    			<select class="form-control" name="turma-letra" id="turma-letra">
-       				<option selected>...</option>
-       				<option value="A">A</option>
-					<option value="B">B</option>
-					<option value="C">C</option>
-					<option value="D">D</option>
-					<option value="E">E</option>
-     				</select>
-    		</div>
-    		<div class="form-group col-sm-8 col-md-8 ">
-    			<label for="nome">Titulo</label>
-    			<input type="text" class="form-control" name="nome" id="nome" value="${nomeSalvo}">
-    		</div>
-    		<p id="erro">${erro}</p>
+		<div class="form-row justify-content-center">
+			<div class="form-group col">
+				<label for="disc" class="control-label">Disciplina:</label>
+				<!-- <select name="disc" class="form-control selectpicker" data-live-search="true"> -->
+				<select name="disc" class="form-control" searchable="Pesquisar...">
+					<optgroup label="Itens:">
+						<option value="1">Analise e Desenvolvimento de Projetos I</option>
+						<option value="1" selected>Analise e Desenvolvimento de Projetos II</option>
+					</optgroup>
+				</select>
+				<span class="glyphicon glyphicon-ok form-control-feedback"></span>
+				<span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+				<span class="glyphicon glyphicon-remove form-control-feedback"></span>
+				<span class="help-block"></span>
+			</div>
+			<div class="form-group col-4">
+				<fieldset name="">
+					<legend>Trabalho:</legend>
+					<label class="radio-inline"><input type="radio" name="opt-olny" id="" value="1" checked>Individual</label>
+					<label class="radio-inline"><input type="radio" name="opt-mult" id="" value="2">Grupo</label>
+					<span class="glyphicon glyphicon-ok form-control-feedback"></span>
+					<span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+					<span class="glyphicon glyphicon-remove form-control-feedback"></span>
+					<span class="help-block"></span>
+				</fieldset>
+			</div>
+			<div class="form-group col-2">
+				<label for="grp-qtde" class="control-label">Qtde:</label>
+				<input type="number" name="grp-qtde" min="2" max="25" placeholder="Qtde." readonly class="form-control" />
+				<span class="glyphicon glyphicon-ok form-control-feedback"></span>
+				<span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+				<span class="glyphicon glyphicon-remove form-control-feedback"></span>
+				<span class="help-block"></span>
+			</div>
 		</div>
-		<div id="botoes">
-			<input id="botao" class="btn btn-lg btn-primary" type="submit" value="Cadastrar">
-			<input id="botao" class="btn btn-lg btn-primary" type="reset" value="Limpar">
-			<!-- <input id="botao" class="btn btn-primary" value="Voltar" onClick="history.go(-1)"> -->
+		<div class="form-row justify-content-center">
+			<div class="form-group col-6">
+				<label for="name" class="control-label">Atividade:</label>
+				<input type="text" name="name" placeholder="Nome da Atividade" class="form-control" />
+				<span class="glyphicon glyphicon-ok form-control-feedback"></span>
+				<span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+				<span class="glyphicon glyphicon-remove form-control-feedback"></span>
+				<span class="help-block"></span>
+			</div>
+			<div class="form-group col">
+				<label for="file" class="control-label">Anexar:</label>
+				<input type="file" name="file" class="form-control" />
+				<span class="glyphicon glyphicon-ok form-control-feedback"></span>
+				<span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+				<span class="glyphicon glyphicon-remove form-control-feedback"></span>
+				<span class="help-block"></span>
+			</div>
 		</div>
- 	</form>
- </div>
+		<div class="form-row justify-content-center">
+			<div class="form-group col">
+				<label for="desc" class="control-label">Descrição:</label>
+				<textarea name="desc" rows="5" placeholder="..." class="form-control rounded-0"></textarea>
+				<span class="glyphicon glyphicon-ok form-control-feedback"></span>
+				<span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+				<span class="glyphicon glyphicon-remove form-control-feedback"></span>
+				<span class="help-block"></span>
+			</div>
+		</div>
+		<div class="form-row justify-content-center">
+			<div class="form-group col">
+				<button class="btn btn-lg btn-primary right" type="reset">Limpar</button>
+			</div>
+			<div class="form-group col">
+				<button class="btn btn-lg btn-primary left" type="submit">Cadastrar</button>
+			</div>
+		</div>	
+	</form>
+</div>

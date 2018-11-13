@@ -21,7 +21,7 @@ app.config(function($routeProvider, $locationProvider){
 		.when("/professor/list", {controller: "", templateUrl: "pages/list-professores.jsp"})
 		.when("/professor/new", {controller: "", templateUrl: "pages/new-professor.jsp"})
 		.when("/professor/edit:obj", {controller: "", templateUrl: "pages/new-professor.jsp"})
-		.when("/curso/list", {controller: "", templateUrl: "pages/list-cursos.jsp"})
+		.when("/curso/list", {controller: "listCursos", templateUrl: "pages/list-cursos.jsp"})
 		.when("/curso/new", {controller: "", templateUrl: "pages/new-curso.jsp"})
 		.when("/curso/edit:obj", {controller: "", templateUrl: "pages/new-curso.jsp"})
 		.when("/categoria/list", {controller: "", templateUrl: "pages/list-categorias.jsp"})
@@ -73,14 +73,89 @@ app.run(function($rootScope, $location) {
 	        type: "Tinto",
 	        price: "R$ 348,00"
     }];
-	
+    /*
+    $rootScope.cursos = [{
+		adc: "abc",
+		name: "ARTES VISUAIS (LICENCIATURA)",
+		cat:"CIÊNCIAS HUMANAS E EDUCAÇÃO"
+	},{
+		abc: "abc",
+		name: "CIÊNCIAS BIOLÓGICAS (LICENCIATURA)          ",
+		cat: "CIÊNCIAS HUMANAS E EDUCAÇÃO"
+	},{
+		abc: "abc", name: "DESIGN DE PRODUTO (TECNOLÓGICO)             ", cat: "CIÊNCIAS HUMANAS E EDUCAÇÃO" },{
+		abc: "abc", name: "DESIGN GRÁFICO (TECNOLÓGICO)                ", cat: "CIÊNCIAS HUMANAS E EDUCAÇÃO" },{
+		abc: "abc", name: "DIREITO                                     ", cat: "CIÊNCIAS HUMANAS E EDUCAÇÃO" },{
+		abc: "abc", name: "EDUCAÇÃO FÍSICA (LICENCIATURA)              ", cat: "CIÊNCIAS HUMANAS E EDUCAÇÃO" },{
+		abc: "abc", name: "FÍSICA (LICENCIATURA)                       ", cat: "CIÊNCIAS HUMANAS E EDUCAÇÃO" },{
+		abc: "abc", name: "FOTOGRAFIA (TECNOLÓGICO)                    ", cat: "CIÊNCIAS HUMANAS E EDUCAÇÃO" },{
+		abc: "abc", name: "HISTÓRIA (LICENCIATURA)                     ", cat: "CIÊNCIAS HUMANAS E EDUCAÇÃO" },{
+		abc: "abc", name: "LETRAS - PORTUGUÊS (LICENCIATURA)           ", cat: "CIÊNCIAS HUMANAS E EDUCAÇÃO" },{
+		abc: "abc", name: "LETRAS - PORTUGUÊS E ESPANHOL (LICENCIATURA)", cat: "CIÊNCIAS HUMANAS E EDUCAÇÃO" },{
+		abc: "abc", name: "LETRAS - PORTUGUÊS E INGLÊS (LICENCIATURA)  ", cat: "CIÊNCIAS HUMANAS E EDUCAÇÃO" },{
+		abc: "abc", name: "MATEMÁTICA (LICENCIATURA)                   ", cat: "CIÊNCIAS HUMANAS E EDUCAÇÃO" },{
+		abc: "abc", name: "PEDAGOGIA (LICENCIATURA)                    ", cat: "CIÊNCIAS HUMANAS E EDUCAÇÃO" },{
+		abc: "abc", name: "PRODUÇÃO AUDIOVISUAL (TECNOLÓGICO)          ", cat: "CIÊNCIAS HUMANAS E EDUCAÇÃO" },{
+		abc: "abc", name: "PRODUÇÃO PUBLICITÁRIA (TECNOLÓGICO)         ", cat: "CIÊNCIAS HUMANAS E EDUCAÇÃO" },{
+		abc: "abc", name: "RELAÇÕES INTERNACIONAIS                     ", cat: "CIÊNCIAS HUMANAS E EDUCAÇÃO" },{
+		abc: "abc", name: "SEGURANÇA PRIVADA (TECNOLÓGICO)             ", cat: "CIÊNCIAS HUMANAS E EDUCAÇÃO" },{
+		abc: "abc", name: "SERVIÇO SOCIAL                              ", cat: "CIÊNCIAS HUMANAS E EDUCAÇÃO" },{
+		abc: "abc", name: "ANÁLISE E DESENVOLVIMENTO DE SISTEMAS (TECNOLÓGICO)", cat: "EXATAS" },{
+		abc: "abc", name: "ARQUITETURA E URBANISMO                            ", cat: "EXATAS" },{
+		abc: "abc", name: "AUTOMAÇÃO INDUSTRIAL                               ", cat: "EXATAS" },{
+		abc: "abc", name: "CIÊNCIA DA COMPUTAÇÃO                              ", cat: "EXATAS" },{
+		abc: "abc", name: "DESIGN DE INTERIORES (TECNOLÓGICO)                 ", cat: "EXATAS" },{
+		abc: "abc", name: "ENGENHARIA AMBIENTAL                               ", cat: "EXATAS" },{
+		abc: "abc", name: "ENGENHARIA CIVIL                                   ", cat: "EXATAS" },{
+		abc: "abc", name: "ENGENHARIA DA COMPUTAÇÃO                           ", cat: "EXATAS" },{
+		abc: "abc", name: "ENGENHARIA DE PRODUÇÃO                             ", cat: "EXATAS" },{
+		abc: "abc", name: "ENGENHARIA DE TELECOMUNICAÇÕES                     ", cat: "EXATAS" },{
+		abc: "abc", name: "ENGENHARIA ELÉTRICA                                ", cat: "EXATAS" },{
+		abc: "abc", name: "ENGENHARIA MECÂNICA                                ", cat: "EXATAS" },{
+		abc: "abc", name: "ENGENHARIA MECATRÔNICA                             ", cat: "EXATAS" },{
+		abc: "abc", name: "GESTÃO AMBIENTAL (TECNOLÓGICO)                     ", cat: "EXATAS" },{
+		abc: "abc", name: "GESTÃO DA TECNOLOGIA DA INFORMAÇÃO (TECNOLÓGICO)   ", cat: "EXATAS" },{
+		abc: "abc", name: "PRODUÇÃO INDUSTRIAL                                ", cat: "EXATAS" },{
+		abc: "abc", name: "REDES DE COMPUTADORES (TECNOLÓGICO)                ", cat: "EXATAS" },{
+		abc: "abc", name: "REDES DE TELECOMUNICAÇÕES                          ", cat: "EXATAS" },{
+		abc: "abc", name: "CIÊNCIAS ECONÔMICAS", cat: "GERAL" },{
+		abc: "abc", name: "ADMINISTRAÇÃO                           ", cat: "GESTÃO E NEGÓCIOS" },{
+		abc: "abc", name: "CIÊNCIAS CONTÁBEIS                      ", cat: "GESTÃO E NEGÓCIOS" },{
+		abc: "abc", name: "COMÉRCIO EXTERIOR (TECNOLÓGICO)         ", cat: "GESTÃO E NEGÓCIOS" },{
+		abc: "abc", name: "EVENTOS (TECNOLÓGICO)                   ", cat: "GESTÃO E NEGÓCIOS" },{
+		abc: "abc", name: "GESTÃO COMERCIAL (TECNOLÓGICO)          ", cat: "GESTÃO E NEGÓCIOS" },{
+		abc: "abc", name: "GESTÃO DA QUALIDADE                     ", cat: "GESTÃO E NEGÓCIOS" },{
+		abc: "abc", name: "GESTÃO DE TURISMO (TECNOLÓGICO)         ", cat: "GESTÃO E NEGÓCIOS" },{
+		abc: "abc", name: "GESTÃO EM RECURSOS HUMANOS (TECNOLÓGICO)", cat: "GESTÃO E NEGÓCIOS" },{
+		abc: "abc", name: "GESTÃO FINANCEIRA (TECNOLÓGICO)         ", cat: "GESTÃO E NEGÓCIOS" },{
+		abc: "abc", name: "GESTÃO PÚBLICA (TECNOLÓGICO)            ", cat: "GESTÃO E NEGÓCIOS" },{
+		abc: "abc", name: "LOGÍSTICA (TECNOLÓGICO)                 ", cat: "GESTÃO E NEGÓCIOS" },{
+		abc: "abc", name: "MARKETING (TECNOLÓGICO)                 ", cat: "GESTÃO E NEGÓCIOS" },{
+		abc: "abc", name: "PROCESSOS GERENCIAIS (TECNOLÓGICO)      ", cat: "GESTÃO E NEGÓCIOS" },{
+		abc: "abc", name: "PUBLICIDADE E PROPAGANDA                ", cat: "GESTÃO E NEGÓCIOS" },{
+		abc: "abc", name: "SEGURANÇA NO TRABALHO                   ", cat: "GESTÃO E NEGÓCIOS" },{
+		abc: "abc", name: "TURISMO                                 ", cat: "GESTÃO E NEGÓCIOS" },{
+		abc: "abc", name: "BIOMEDICINA                      ", cat: "SAÚDE" },{
+		abc: "abc", name: "CIÊNCIAS BIOLÓGICAS (BACHARELADO)", cat: "SAÚDE" },{
+		abc: "abc", name: "EDUCAÇÃO FÍSICA (BACHARELADO)    ", cat: "SAÚDE" },{
+		abc: "abc", name: "ENFERMAGEM                       ", cat: "SAÚDE" },{
+		abc: "abc", name: "FARMÁCIA                         ", cat: "SAÚDE" },{
+		abc: "abc", name: "FISIOTERAPIA                     ", cat: "SAÚDE" },{
+		abc: "abc", name: "GESTÃO HOSPITALAR                ", cat: "SAÚDE" },{
+		abc: "abc", name: "MEDICINA                         ", cat: "SAÚDE" },{
+		abc: "abc", name: "NUTRIÇÃO                         ", cat: "SAÚDE" },{
+		abc: "abc", name: "ODONTOLOGIA                      ", cat: "SAÚDE" },{
+		abc: "abc", name: "PSICOLOGIA                       ", cat: "SAÚDE" },{
+		abc: "abc", name: "RADIOLOGIA                       ", cat: "SAÚDE
+	}];
+	*/
 	$rootScope.home = function (){
 		$location.path('/');
 	};
 });
 
-app.controller('listController', ['$scope', '$routeParams', '$rootScope', '$route', '$location', function listController($scope, $routeParams, $routeScope, $route, $location) {
-
+app.controller('listCursos', ['$scope', '$routeParams', '$rootScope', '$route', '$location', function listController($scope, $routeParams, $routeScope, $route, $location) {
+	
 }]);
 
 app.controller('editController', ['$scope', '$routeParams', '$rootScope', '$route', '$location', function editController($scope, $routeParams, $routeScope, $route, $location) {

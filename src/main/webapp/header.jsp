@@ -22,12 +22,6 @@ if(cookies !=null){
 <header class="cd-main-header">
 	<a href="#" class="cd-logo"></a>
 	
-	<div class="cd-search is-hidden">
-		<form action="#">
-			<input type="search" placeholder="Pesquisar...">
-		</form>
-	</div> <!-- cd-search -->
-
 	<a href="#" class="cd-nav-trigger"><span></span></a>
 
 	<nav class="cd-nav">

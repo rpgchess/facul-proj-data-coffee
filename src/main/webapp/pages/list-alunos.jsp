@@ -1,17 +1,13 @@
 <div class="container">
-	<form action="#" class="form-inline">
-		<div class="form-group row">
-			<div class="col-sm-4">
-				<label>ALUNOS</label>
-			</div>
-			<div class="col-sm-2">
-				<a class="btn btn-primary" href="aluno/new">Novo</a>
-			</div>
+	<form class="form-inline">
+		<div class="form-group">
+			<a href="aluno/list" class="btn btn-lg btn-primary disabled">Voltar</a>
+			<label for="title" class="control-label">ALUNOS</label>
+			<a href="aluno/new" class="btn btn-lg btn-primary">Novo</a>
 		</div>
 	</form>
-	<hr>
-	<table class="table table-striped">
-		<thead class="thead-light ">
+	<table class="table table-sm table-striped table-hover">
+		<thead class="thead-light">
 		    <tr>
 		      <th scope="col">RGM</th>
 		      <th scope="col">Nome</th>
@@ -20,23 +16,17 @@
 		      <th scope="col">Controle</th>
 		    </tr>
 		</thead>
-		<tbody class="innerHTML">
-	    	<script language="Javascript">
-				$.get("http://localhost:9999/consultar-alunos", function(alunos) {
-   					console.log(alunos);
-       				$.each(alunos,function(a, aluno){
-    	        		var item = "<tr>"
-    	        		item += "<td>"+ aluno.rgm +"</td>";
-	        			item += "<td>"+ aluno.nome +"</td>";
-	    			    item += "<td>"+ aluno.turma +"</td>";
-		    		    item += "<td>"+ aluno.periodo +"</td>";
-			    	    item += "<td>"
-		    	    	item += "<a id=botao class='btn btn-primary' href='editar?rgm="+aluno.rgm+"'>Editar</a>";
-						item += "<a id=botao class='btn btn-primary' href='excluir-aluno?rgm="+aluno.rgm+"'>Excluir</a>";
-	        			item += "</td></tr>"
-    		            $('.innerHTML').append(item);
-	               	});
-    			});
-			</script>
+		<tbody>
+	    	<tr>
+	    		<td>18426581</td>
+	    		<td>Claudio Almeida Martins</td>
+	    		<td>3B/4C</td>
+	    		<td>Noturno</td>
+		    	<td>
+		      		<a href="" class="btn btn-sm btn-primary">Editar</a>
+			  		<a href="" class="btn btn-sm btn-primary">Excluir</a>
+				</td>
+			</tr>
 		</tbody>
 	</table>
+</div>

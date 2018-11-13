@@ -1,30 +1,29 @@
 <div class="container">
-	<form action="#" class="form-inline">
-		<div class="form-group row">
-			<div class="col-sm-2">
-				<a class="btn btn-primary" href="turma/list">Voltar</a>
-			</div>
-			<div class="col-sm-8">
-				<label>CADASTRAR TURMA</label>
-			</div>
+	<form novalidate class="form-inline">
+		<div class="form-group">
+			<a href="turma/list" class="btn btn-lg btn-primary">Voltar</a>
+			<label for="title" class="control-label">CADASTRAR TURMA</label>
+			<a href="turma/new" class="btn btn-lg btn-primary disabled">Novo</a>
 		</div>
 	</form>
-	<form method="post" action="cadastrar-curso">
-		<div class="form-row">
-   			<div class="form-group col-sm-8 col-md-8 ">
-   				<label for="nome">Disciplina</label>
-   				<input type="text" class="form-control" name="nome" id="nome" value="${nomeSalvo}">
-   			</div>
-   			<div class="form-group col-sm-4 col-md-4 ">
-   				<label for="categoria">Categoria</label>
-   				<input type="text" class="form-control" name="categoria" id="categoria" value="${nomeSalvo}">
-   			</div>
-   			<p id="erro">${erro}</p>
+	<form novalidade>
+		<div class="form-row justify-content-center">
+			<div class="form-group col">
+				<label for="turma" class="control-label">Turma:</label>
+				<input type="text" name="turma" size="" maxlength="" placeholder="Turma" class="form-control" />
+				<span class="glyphicon glyphicon-ok form-control-feedback"></span>
+				<span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+				<span class="glyphicon glyphicon-remove form-control-feedback"></span>
+				<span class="help-block"></span>
+			</div>
 		</div>
-		<div id="botoes">
-			<input id="botao" class="btn btn-primary" type="submit" value="Cadastrar">
-			<input id="botao" class="btn btn-primary" type="reset" value="Limpar">
-			<!-- <input id="botao" class="btn btn-primary" value="Voltar" onClick="history.go(-1)"> -->
-		</div>
+		<div class="form-row justify-content-center">
+			<div class="form-group col">
+				<button class="btn btn-lg btn-primary right" type="reset">Limpar</button>
+			</div>
+			<div class="form-group col">
+				<button class="btn btn-lg btn-primary left" type="submit">Cadastrar</button>
+			</div>
+		</div>	
 	</form>
 </div>

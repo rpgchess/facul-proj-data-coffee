@@ -1,17 +1,13 @@
 <div class="container">
-	<form action="#" class="form-inline">
-		<div class="form-group row">
-			<div class="col-sm-4">
-				<label>GRUPOS</label>
-			</div>
-			<div class="col-sm-2">
-				<a class="btn btn-primary" href="grupo/new">Novo</a>
-			</div>
+	<form class="form-inline">
+		<div class="form-group">
+			<a href="grupo/list" class="btn btn-lg btn-primary disabled">Voltar</a>
+			<label for="title" class="control-label">GRUPOS</label>
+			<a href="grupo/new" class="btn btn-lg btn-primary">Novo</a>
 		</div>
 	</form>
-	<hr>
-	<table class="table table-striped">
-		<thead class="thead-light ">
+	<table class="table table-sm table-striped table-hover">
+		<thead class="thead-light">
 		    <tr>
 		    	<th scope="col">Nome</th>
 		    	<th scope="col">Integrantes</th>
@@ -23,11 +19,11 @@
 		    	<tr>
 			    	<td>Data Coffee Company</td>
 			    	<td>6/10</td>
-					<td>
-			      		<a id=botao class="btn btn-lg btn-primary" href="editar?id=${grupo.id}">Editar</a>
-				  		<a id=botao class="btn btn-lg btn-primary" href="excluir-grupo?id=${grupo.id}">Excluir</a>
-					</td>
-		    	</tr>
-	    	</c:forEach>
+		    	<td>
+		      		<a href="" class="btn btn-sm btn-primary">Editar</a>
+			  		<a href="" class="btn btn-sm btn-primary">Excluir</a>
+				</td>
+			</tr>
 		</tbody>
 	</table>
+</div>
