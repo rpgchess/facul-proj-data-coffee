@@ -1,0 +1,57 @@
+CREATE TABLE aluno (
+rgm INT(11) PRIMARY KEY,
+nome VARCHAR(60),
+turma VARCHAR(30),
+periodo VARCHAR(30),
+email VARCHAR(50)
+);
+
+CREATE TABLE categoriacurso(
+id INTEGER PRIMARY KEY AUTOINCREMENT,
+categoria VARCHAR(50)
+);
+
+CREATE TABLE atividade(
+id INTEGER PRIMARY KEY AUTOINCREMENT,
+nome VARCHAR(60),
+data VARCHAR(20),
+entrega VARCHAR(20),
+curso VARCHAR(40),
+disciplina VARCHAR(60),
+trabalho VARCHAR(60),
+quantidade VARCHAR(3),
+arquivo VARCHAR(50),
+descricao VARCHAR(200)
+);
+
+CREATE TABLE curso(
+id INTEGER PRIMARY KEY AUTOINCREMENT,
+abrev VARCHAR(5),
+nome VARCHAR(60),
+nivel VARCHAR(40),
+categoria VARCHAR(40)
+);
+
+CREATE TABLE disciplina(
+id INTEGER PRIMARY KEY AUTOINCREMENT,
+nome VARCHAR(60),
+curso VARCHAR(60)
+);
+
+CREATE TABLE periodo(
+id INTEGER PRIMARY KEY AUTOINCREMENT,
+nome VARCHAR(30)
+);
+
+CREATE TABLE professor(
+registro INT(11) PRIMARY KEY,
+nome VARCHAR(60),
+email VARCHAR(60),
+nvacesso VARCHAR(30),
+senha VARCHAR(20)
+);
+
+CREATE TABLE turma(
+id INTEGER PRIMARY KEY AUTOINCREMENT,
+nome VARCHAR(20)
+);

@@ -6,15 +6,17 @@ public class Aluno {
 	private String nome;
 	private String turma;
 	private String periodo;
+	private String email;
 	
 	public Aluno() {
 	}
 	
-	public Aluno(int rgm, String nome, String turma, String periodo) {
+	public Aluno(int rgm, String nome, String turma, String periodo, String email) {
 		this.rgm = rgm;
 		this.nome = nome;
 		this.turma = turma;
 		this.periodo = periodo;
+		this.email = email;
 	}
 
 	public int getRgm() {
@@ -23,6 +25,14 @@ public class Aluno {
 
 	public void setRgm(int rgm) {
 		this.rgm = rgm;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getNome() {

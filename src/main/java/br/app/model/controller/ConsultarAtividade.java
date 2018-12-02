@@ -12,21 +12,19 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 
-import br.app.model.dao.AlunoDAO;
-import br.app.model.domain.Aluno;
+import br.app.model.dao.AtividadeDAO;
+import br.app.model.domain.Atividade;
 
-@WebServlet("/consultar-alunos")
-public class ConsultarAlunos extends HttpServlet {
+@WebServlet("/consultar-atividade")
+public class ConsultarAtividade extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		List<Aluno> alunos = new ArrayList<Aluno>();
-		alunos = new AlunoDAO().findAll();
-		String json = new Gson().toJson(alunos);
-		response.setContentType("application/json");
-		response.setCharacterEncoding("UTF-8");
-		response.getWriter().write(json);
-		
+		List<Atividade> atividades = new ArrayList<Atividade>();
+		atividades = new AtividadeDAO().findAll();
+		String json = new Gson().toJson(atividades);
+	    response.setContentType("application/json");
+	    response.setCharacterEncoding("UTF-8");
+	    response.getWriter().write(json);
 	}
-
 }

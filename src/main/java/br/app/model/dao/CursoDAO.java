@@ -6,24 +6,23 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.app.model.domain.Aluno;
+import br.app.model.domain.Curso;
 import br.app.util.ConnectionFactory;
 
-public class AlunoDAO {
-	public void create(Aluno aluno) {
+public class CursoDAO {
+	public void create(Curso curso) {
 		try {
 			
 			//1º Abrir uma conexão
 			Connection con = ConnectionFactory.getConnection();
 			
 			//2º Preparar o comando SQL a ser executado
-			String sql = "INSERT INTO aluno VALUES (?, ?, ?, ?, ?)";
+			String sql = "INSERT INTO curso (abrev, nome, nivel, categoria) VALUES (?, ?, ?, ?)";
 			PreparedStatement cmd = con.prepareStatement(sql);
-			cmd.setInt(1, aluno.getRgm());
-			cmd.setString(2, aluno.getNome());
-			cmd.setString(3, aluno.getTurma());
-			cmd.setString(4, aluno.getPeriodo());
-			cmd.setString(5, aluno.getEmail());
+			cmd.setString(1, curso.getAbrev());
+			cmd.setString(2, curso.getNome());
+			cmd.setString(3, curso.getNivel());
+			cmd.setString(4, curso.getCategoria());
 			
 			//3º Executar o comando SQL
 			cmd.executeUpdate();
@@ -37,20 +36,20 @@ public class AlunoDAO {
 		}
 	}
 
-	public void update(Aluno aluno) {
+	public void update(Curso curso) {
 		try {
 
 			//1º Abrir uma conexão
 			Connection con = ConnectionFactory.getConnection();
 			
 			//2º Preparar o comando SQL a ser executado
-			String sql = "UPDATE aluno SET nome = ?, turma = ?, periodo = ?, email = ? WHERE rgm = ?";
+			String sql = "UPDATE curso SET abrev = ?, nome = ?, nivel = ?, categoria = ? WHERE id = ?";
 			PreparedStatement cmd = con.prepareStatement(sql);
-			cmd.setString(1, aluno.getNome());
-			cmd.setString(2, aluno.getTurma());
-			cmd.setString(3, aluno.getPeriodo());
-			cmd.setString(4, aluno.getEmail());
-			cmd.setInt(5, aluno.getRgm());
+			cmd.setString(1, curso.getAbrev());
+			cmd.setString(2, curso.getNome());
+			cmd.setString(3, curso.getNivel());
+			cmd.setString(4, curso.getCategoria());
+			cmd.setInt(5, curso.getId());
 			
 			//3º Executar o comando SQL
 			cmd.executeUpdate();
@@ -65,16 +64,16 @@ public class AlunoDAO {
 
 	}
 	
-	public void delete(int rgm) {
+	public void delete(int id) {
 		try {
 			
 			//1º Abrir uma conexão
 			Connection con = ConnectionFactory.getConnection();
 			
 			//2º Preparar o comando SQL a ser executado
-			String sql = "DELETE FROM aluno WHERE rgm = ?";
+			String sql = "DELETE FROM curso WHERE id = ?";
 			PreparedStatement cmd = con.prepareStatement(sql);
-			cmd.setInt(1, rgm);
+			cmd.setInt(1, id);
 			
 			//3º Executar o comando SQL
 			cmd.executeUpdate();
@@ -88,15 +87,15 @@ public class AlunoDAO {
 		}
 	}	
 	
-	public Aluno findByRgm(int rgm) {
+	public Curso findById(int id) {
 		try {
 			//1º Abrir conexão
 			Connection con = ConnectionFactory.getConnection();
 			
 			//2º Preparar o comando SQL a ser executado
-			String sql = "SELECT * FROM aluno WHERE rgm = ?";
+			String sql = "SELECT * FROM curso WHERE id = ?";
 			PreparedStatement cmd = con.prepareStatement(sql);
-			cmd.setInt(1, rgm);
+			cmd.setInt(1, id);
 			
 			//3ºA Execução do comando SQL
 			//3ºB obtenção dos dados 
@@ -104,15 +103,15 @@ public class AlunoDAO {
 			
 			//3ºC Tratamento dos dados retornado
 			
-			Aluno aluno = null;
+			Curso curso = null;
 			
 			if (rs.next()) { //Tem registro?
-				aluno = new Aluno();
-				aluno.setRgm(rs.getInt("rgm"));
-				aluno.setNome(rs.getString("nome"));
-				aluno.setTurma(rs.getString("turma"));
-				aluno.setPeriodo(rs.getString("periodo"));
-				aluno.setEmail(rs.getString("email"));
+				curso = new Curso();
+				curso.setId(rs.getInt("id"));
+				curso.setNome(rs.getString("nome"));
+				curso.setAbrev(rs.getString("abrev"));
+				curso.setNivel(rs.getString("nivel"));
+				curso.setCategoria(rs.getString("categoria"));				
 			}
 			
 			//4º Fechar a conexão
@@ -121,21 +120,21 @@ public class AlunoDAO {
 			con.close();
 			
 			//Retorno do objeto aluno
-			return aluno;
+			return curso;
 			
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}
 	}
 
-	public List<Aluno> findAll() {
+	public List<Curso> findAll() {
 		try {
 			
 			//1º Abrir conexão
 			Connection con = ConnectionFactory.getConnection();
 			
 			//2º Preparar o comando SQL a ser executado
-			String sql = "SELECT * FROM aluno";
+			String sql = "SELECT * FROM curso";
 			PreparedStatement cmd = con.prepareStatement(sql);
 						
 			//3ºA Execução do comando SQL
@@ -143,20 +142,20 @@ public class AlunoDAO {
 			ResultSet rs = cmd.executeQuery();
 			
 			//3ºC Tratamento dos dados retornado
-			List<Aluno> alunos = new ArrayList<>(); //vazia
+			List<Curso> cursos = new ArrayList<>(); //vazia
 			
 			
 			while (rs.next()) { //Enquanto houver registro....
 				//Cria um objeto aluno
-				Aluno aluno = new Aluno();
-				aluno.setRgm(rs.getInt("rgm"));
-				aluno.setNome(rs.getString("nome"));
-				aluno.setTurma(rs.getString("turma"));
-				aluno.setPeriodo(rs.getString("periodo"));
-				aluno.setEmail(rs.getString("email"));
-				
+				Curso curso = new Curso();
+				curso.setId(rs.getInt("id"));
+				curso.setAbrev(rs.getString("abrev"));
+				curso.setNome(rs.getString("nome"));
+				curso.setNivel(rs.getString("nivel"));
+				curso.setCategoria(rs.getString("categoria"));
+			
 				//Adiciona um aluno à lista
-				alunos.add(aluno);
+				cursos.add(curso);
 			}
 			
 			//4º Fechar conexão
@@ -165,10 +164,11 @@ public class AlunoDAO {
 			con.close();
 			
 			//Retorno da lista de alunos
-			return alunos;
+			return cursos;
 
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}
 	}
+
 }
