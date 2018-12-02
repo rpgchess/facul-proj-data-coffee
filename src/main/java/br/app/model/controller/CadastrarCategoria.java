@@ -24,7 +24,7 @@ public class CadastrarCategoria extends HttpServlet {
 		BufferedReader reader = request.getReader();
 		categoria = json.fromJson(reader, CategoriaDoCurso.class);
 		new CategoriaDAO().create(categoria);
-		
+		response.setStatus(HttpServletResponse.SC_OK);
 	}
 
 }

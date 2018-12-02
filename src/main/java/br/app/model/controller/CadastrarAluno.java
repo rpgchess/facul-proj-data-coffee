@@ -17,8 +17,8 @@ import br.app.model.domain.Aluno;
 @WebServlet("/cadastrar-aluno")
 public class CadastrarAluno extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
 		Gson json = new Gson();
@@ -27,12 +27,6 @@ public class CadastrarAluno extends HttpServlet {
 		aluno = json.fromJson(reader, Aluno.class);
 		new AlunoDAO().create(aluno);
 		
-		response.addHeader("Access-Control-Allow-Origin", "*");
-        if (request.getHeader("Access-Control-Request-Method") != null && "OPTIONS".equals(request.getMethod())) {
-            // CORS "pre-flight" request
-            response.addHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
-            response.addHeader("Access-Control-Allow-Headers", "Content-Type");
-            response.addHeader("Access-Control-Max-Age", "1");
-        }
+		
     }
 }

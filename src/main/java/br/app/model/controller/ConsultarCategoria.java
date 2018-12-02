@@ -19,7 +19,7 @@ import br.app.model.domain.CategoriaDoCurso;
 public class ConsultarCategoria extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		List<CategoriaDoCurso> categorias = new ArrayList<CategoriaDoCurso>();
 		categorias = new CategoriaDAO().findAll();
 		String json = new Gson().toJson(categorias);

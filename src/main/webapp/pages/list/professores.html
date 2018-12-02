@@ -1,0 +1,32 @@
+<div class="container">
+	<form class="form-inline">
+		<div class="form-group">
+			<a href="#!/professor/list" class="btn btn-lg btn-primary disabled">Voltar</a> | 
+			<a href="#!/professor/new" class="btn btn-lg btn-primary">Novo</a>
+			<label for="title" class="control-label">PROFESSORES</label>
+		</div>
+	</form>
+	<table class="table table-sm table-striped table-hover">
+		<thead class="thead-light">
+		    <tr>
+		    	<th scope="col" style="width:100px"><input type="text" name="search" class="search" ng-model="professor.rgm" placeholder="Registro"></th>
+		    	<th scope="col"><input type="text" name="search" class="search" ng-model="professor.nome" placeholder="Professor"></th>
+		    	<th scope="col">Acesso</th>
+		    	<th scope="col">Email</th>
+		    	<th scope="col" style="width:100px">Controle</th>
+		    </tr>
+		</thead>
+		<tbody>
+	    	<tr ng-repeat="professor in professores | filter:professor">
+	    		<td>{{ professor.rgm }}</td>
+	    		<td>{{ professor.nome }}</td>
+	    		<td>{{ professor.acesso }}</td>
+	    		<td>{{ professor.email }}</td>
+		    	<td>
+		      		<a href="#!/professor/edit/{{ professor.rgm }}" class="btn btn-sm btn-primary">Editar</a>
+			  		<a href="#!/" class="btn btn-sm btn-primary">Excluir</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

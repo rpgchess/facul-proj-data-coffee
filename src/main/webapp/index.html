@@ -1,12 +1,63 @@
-<!DOCTYPE html>
-<html>
+﻿<!DOCTYPE html>
+<html class="no-js" lang="pt-br" ng-app="dataCoffeeLogin">
 <head>
-<meta charset="UTF-8">
-<title>Data Coffee Back-End</title>
+	<!-- Required meta tags -->
+  <meta charset="UTF-8">
+    
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+	<meta name="author" content="Claudio A. Martins">
+	<meta name="description" content="">
+	<link rel="icon" href="img/icone-login.png">
+    
+	<link href='https://fonts.googleapis.com/css?family=Charmonman:700' rel='stylesheet' type='text/css'>
+	
+	<!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="frameworks/bootstrap/css/bootstrap.min.css" />
+	
+	<link rel="stylesheet" href="css/login.css">
+	
+  <script src="frameworks/modernizr/js/modernizr.js"></script> <!-- Modernizr -->
+  
+  <title>Login</title>
 </head>
-<body>
-	<center>
-		<h1>DATA COFFEE - Back-End</h1>
-	</center>
+<body ng-controller="loginForm">
+  <div id="logo">
+    <p>Data Coffee</p>
+    <p id="sublogo">Company</p>
+  </div>
+  <div class="container">
+    <form name="frmLogin" class="form-signin" novalidate>
+      <h2 class="form-signin-heading">Faça o login</h2>
+      <div class="form-group" ng-class="{ 'was-validated' : frmLogin.login.$invalid && frmLogin.login.$dirty }">
+        <label for="login" class="sr-only">Login</label>
+        <input type="text" ng-model="login" name="login" id="login" class="form-control" placeholder="Login" ng-required="true" required autofocus>
+        <div class="valid-feedback"></div>
+        <div class="invalid-feedback">
+          <p ng-show="frmLogin.login.$dirty && frmLogin.login.$error.required"  class="help-block">Login é obrigatorio</p>
+        </div>
+      </div>
+      <div class="form-group" ng-class="{ 'was-validated' : frmLogin.pwd.$invalid && frmLogin.pwd.$dirty }">
+        <label for="pwd" class="sr-only">Senha</label>
+        <input type="password" ng-model="pwd" name="pwd" id="pwd" class="form-control" placeholder="Senha" ng-required="true" required>
+        <div class="valid-feedback"></div>
+        <div class="invalid-feedback">
+          <p ng-show="frmLogin.pwd.$dirty && frmLogin.pwd.$error.required"  class="help-block">Senha é obrigatorio</p>
+        </div>
+      </div>
+      <a href="home.html" class="btn btn-lg btn-primary btn-block">Logar</a>
+      <div class="checkbox">
+        <label>Você é aluno? Então clique <a href="aluno.html">aqui</a></label>
+      </div>
+    </form>
+  </div> <!-- /container -->
+  <!-- JQuery -->
+	<script src="frameworks/jquery/js/jquery-3.3.1.min.js"></script>
+	<!-- Bootstrap -->
+	<script src="frameworks/bootstrap/js/bootstrap.min.js"></script>
+	<!-- AngularJS -->
+  <script src="frameworks/angularjs/js/angular.min.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>

@@ -1,0 +1,33 @@
+<div class="container">
+	<form novalidate class="form-inline">
+		<div class="form-group">
+			<a href="#!/disciplina/list" class="btn btn-lg btn-primary">Voltar</a> | 
+			<a href="#!/disciplina/new" class="btn btn-lg btn-primary disabled">Novo</a>
+			<label for="title" class="control-label">CADASTRAR DISCIPLINA</label>
+		</div>
+	</form>
+	<form name="frmDisc" novalidate>
+		<div class="form-row justify-content-center">
+			<div class="form-group col-sm" ng-class="{ 'was-validated' : frmDisc.name.$invalid && !frmDisc.name.$pristine }">
+				<label for="name" class="control-label">Disciplina:</label>
+				<input type="text" name="name" placeholder="Nome da disciplina" class="form-control"
+				required ng-model="name" maxlength="50" />
+				<div class="invalid-tooltip">
+					<p ng-show="frmDisc.name.$dirty && frmDisc.name.$error.required">Nome obrigatório</p>
+				</div>
+			</div>
+			<div class="form-group col-sm">
+				<label for="curso" class="control-label">Curso:</label>
+				<select name="curso" class="form-control" ng-model="curso" ng-options="c.nome group by 'Itens:' for c in cursos"></select>
+			</div>
+		</div>
+		<div class="form-row justify-content-center">
+			<div class="form-group col">
+				<button class="btn btn-lg btn-primary right" ng-click="reset();" type="reset">Limpar</button>
+			</div>
+			<div class="form-group col">
+				<button class="btn btn-lg btn-primary left" ng-click="salvar();" ng-disabled="frmDisc.$invalid" type="submit">Cadastrar</button>
+			</div>
+		</div>	
+	</form>
+</div>
