@@ -15,7 +15,7 @@ import br.app.model.dao.TurmaDAO;
 import br.app.model.domain.Turma;
 
 @WebServlet("/cadastrar-turma")
-public class CadastrarTurma extends HttpServlet{
+public class CadastrarTurma extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -24,6 +24,13 @@ public class CadastrarTurma extends HttpServlet{
 		BufferedReader reader = request.getReader();
 		turma = json.fromJson(reader, Turma.class);
 		new TurmaDAO().create(turma);
+		response.setStatus(HttpServletResponse.SC_OK);
+		/*
+		String json2 = new Gson().toJson(turma);
+		response.setContentType("application/json");
+		response.setCharacterEncoding("UTF-8");
+		response.getWriter().write(json2);
+		*/
 	}
 
 }

@@ -18,11 +18,16 @@ import br.app.model.domain.Atividade;
 public class CadastrarAtividade extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Gson json = new Gson();
 		Atividade atividade = new Atividade();
 		BufferedReader reader = request.getReader();
 		atividade = json.fromJson(reader, Atividade.class);
-		new AtividadeDAO().create(atividade);
+		//new AtividadeDAO().create(atividade);
+		response.setStatus(HttpServletResponse.SC_OK);
+		String json2 = new Gson().toJson(atividade);
+		response.setContentType("application/json");
+		response.setCharacterEncoding("UTF-8");
+		response.getWriter().write(json2);
 	}
 }

@@ -19,7 +19,7 @@ import br.app.model.domain.Professor;
 public class ConsultarProfessores extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		List<Professor> professores = new ArrayList<Professor>();
 		professores = new ProfessorDAO().findAll();
 		String json = new Gson().toJson(professores);
@@ -27,7 +27,4 @@ public class ConsultarProfessores extends HttpServlet{
 	    response.setCharacterEncoding("UTF-8");
 	    response.getWriter().write(json);
 	}
-	
-	
-
 }

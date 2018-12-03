@@ -203,21 +203,70 @@ angular.module('dataCoffee', ['ngRoute'])
 })
 
 .run(function($rootScope, $location) {
-	$rootScope.baseUrl = "http://localhost:9999";
-	$rootScope.alunoUrl = "/data/alunos.json";
-	$rootScope.atividadeUrl = "/data/atividades.json";
-	$rootScope.categoriaUrl = "/data/categorias.json";
-	$rootScope.cursoUrl = "/data/cursos.json";
-	$rootScope.disciplinaUrl = "/data/disciplinas.json";
-	$rootScope.grupoUrl = "/data/grupos.json";
-	$rootScope.periodoUrl = "/data/periodos.json";
-	$rootScope.professorUrl = "/data/professores.json";
-	$rootScope.turmaUrl = "/data/turmas.json";
-	$rootScope.typesCursoUrl = "/data/tipos-curso.json";
-	$rootScope.typesAcessoUrl = "/data/tipos-acesso.json";
+	$rootScope.url = [];
+	$rootScope.url.tipo = [];
+	$rootScope.url.list = [];
+	$rootScope.url.edit = [];
+	$rootScope.url.new = [];
+	$rootScope.url.del = [];
+	$rootScope.url.base = "http://localhost:9999";
+
+	$rootScope.url.tipo.curso = $rootScope.url.base + "/data/tipos-curso.json";
+	$rootScope.url.tipo.acesso = $rootScope.url.base + "/data/tipos-acesso.json";
+	$rootScope.url.tipo.disciplina = $rootScope.url.base + "/data/tipos-disciplina.json";
+
+	$rootScope.url.new.aluno = $rootScope.url.base + "/cadastrar-aluno";
+	$rootScope.url.new.atividade = $rootScope.url.base + "/cadastrar-atividade";
+	$rootScope.url.new.categoria = $rootScope.url.base + "/cadastrar-categoria";
+	$rootScope.url.new.curso = $rootScope.url.base + "/cadastrar-curso";
+	$rootScope.url.new.disciplina = $rootScope.url.base + "/cadastrar-disciplina";
+	$rootScope.url.new.periodo = $rootScope.url.base + "/cadastrar-periodo";
+	$rootScope.url.new.professor = $rootScope.url.base + "/cadastrar-professor";
+	$rootScope.url.new.turma = $rootScope.url.base + "/cadastrar-turma";
+
+	$rootScope.url.list.aluno = $rootScope.url.base + "/consultar-alunos";
+	$rootScope.url.list.atividade = $rootScope.url.base + "/consultar-atividades";
+	$rootScope.url.list.categoria = $rootScope.url.base + "/consultar-categorias";
+	$rootScope.url.list.curso = $rootScope.url.base + "/consultar-cursos";
+	$rootScope.url.list.disciplina = $rootScope.url.base + "/consultar-disciplinas";
+	$rootScope.url.list.periodo = $rootScope.url.base + "/consultar-periodos";
+	$rootScope.url.list.professor = $rootScope.url.base + "/consultar-professores";
+	$rootScope.url.list.turma = $rootScope.url.base + "/consultar-turmas";
+
+	$rootScope.url.edit.aluno = $rootScope.url.base + "/editar-aluno";
+	$rootScope.url.edit.atividade = $rootScope.url.base + "/editar-atividade";
+	$rootScope.url.edit.categoria = $rootScope.url.base + "/editar-categoria";
+	$rootScope.url.edit.curso = $rootScope.url.base + "/editar-curso";
+	$rootScope.url.edit.disciplina = $rootScope.url.base + "/editar-disciplina";
+	$rootScope.url.edit.periodo = $rootScope.url.base + "/editar-periodo";
+	$rootScope.url.edit.professor = $rootScope.url.base + "/editar-professor";
+	$rootScope.url.edit.turma = $rootScope.url.base + "/editar-turma";
+
+	$rootScope.url.del.aluno = $rootScope.url.base + "/excluir-aluno";
+	$rootScope.url.del.atividade = $rootScope.url.base + "/excluir-atividade";
+	$rootScope.url.del.categoria = $rootScope.url.base + "/excluir-categoria";
+	$rootScope.url.del.curso = $rootScope.url.base + "/excluir-curso";
+	$rootScope.url.del.disciplina = $rootScope.url.base + "/excluir-disciplina";
+	$rootScope.url.del.periodo = $rootScope.url.base + "/excluir-periodo";
+	$rootScope.url.del.professor = $rootScope.url.base + "/excluir-professor";
+	$rootScope.url.del.turma = $rootScope.url.base + "/excluir-turma";
+
 	$rootScope.home = function (){
 		$location.path('/')
 	}
+
+	$rootScope.alert_reset = function (){
+		$("#toggleCSS").attr("href", "css/alertify.default.css");
+		alertify.set({
+			labels : {
+				ok     : "OK",
+				cancel : "Cancel"
+			},
+			delay : 5000,
+			buttonReverse : false,
+			buttonFocus   : "ok"
+		});
+	};
 })
 
 function compareTo() {

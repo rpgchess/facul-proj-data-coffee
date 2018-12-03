@@ -18,15 +18,18 @@ import br.app.model.domain.Aluno;
 public class CadastrarAluno extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Gson json = new Gson();
 		Aluno aluno = new Aluno();
 		BufferedReader reader = request.getReader();
 		aluno = json.fromJson(reader, Aluno.class);
 		new AlunoDAO().create(aluno);
-		
-		
+		response.setStatus(HttpServletResponse.SC_OK);
+		/*
+		String json2 = new Gson().toJson(aluno);
+		response.setContentType("application/json");
+		response.setCharacterEncoding("UTF-8");
+		response.getWriter().write(json2);
+		*/
     }
 }

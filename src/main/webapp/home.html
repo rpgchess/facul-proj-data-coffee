@@ -18,6 +18,7 @@
 	
 	<!-- Alertify -->
 	<link rel="stylesheet" href="frameworks/alertify/css/alertify.core.css" />
+	<link rel="stylesheet" href="frameworks/alertify/css/alertify.default.css" id="toggleCSS" />
 	
 	<link rel="stylesheet" href="css/reset.css" />
 	<link rel="stylesheet" href="css/style.css" />
@@ -74,8 +75,6 @@
 					<li class="no-touch group"><a href="#!/turma/list">Turmas</a></li>
 					<li class="no-touch edit"><a href="#!/periodo/list">Períodos</a></li>
 					<li class="no-touch task"><a href="#!/report/professor">Relatórios</a></li>
-				<li class="cd-label">Aluno</li>
-					<li class="no-touch group"><a href="#!/grupo/list">Grupos</a></li>
 			</ul>
 			<br>
 		</nav> <!-- .cd-side-nav -->
@@ -98,32 +97,29 @@
 	<script src="frameworks/angularjs/js/angular.min.js"></script>
 	<script src="frameworks/angularjs/js/angular-route.min.js"></script>
 	<script src="controllers/app.js"></script>
-	<script src="controllers/aluno/edit-aluno.controller.js"></script>
-	<script src="controllers/aluno/list-alunos.controller.js"></script>
-	<script src="controllers/aluno/new-aluno.controller.js"></script>
-	<script src="controllers/atividade/edit-atividade.controller.js"></script>
-	<script src="controllers/atividade/list-atividades.controller.js"></script>
-	<script src="controllers/atividade/new-atividade.controller.js"></script>
-	<script src="controllers/categoria/edit-categoria.controller.js"></script>
-	<script src="controllers/categoria/list-categorias.controller.js"></script>
-	<script src="controllers/categoria/new-categoria.controller.js"></script>
-	<script src="controllers/curso/edit-curso.controller.js"></script>
-	<script src="controllers/curso/list-cursos.controller.js"></script>
-	<script src="controllers/curso/new-curso.controller.js"></script>
-	<script src="controllers/disciplina/edit-disciplina.controller.js"></script>
-	<script src="controllers/disciplina/list-disciplinas.controller.js"></script>
-	<script src="controllers/disciplina/new-disciplina.controller.js"></script>
-	<script src="controllers/grupo/edit-grupo.controller.js"></script>
-	<script src="controllers/grupo/list-grupos.controller.js"></script>
-	<script src="controllers/grupo/new-grupo.controller.js"></script>
-	<script src="controllers/periodo/edit-periodo.controller.js"></script>
-	<script src="controllers/periodo/list-periodos.controller.js"></script>
-	<script src="controllers/periodo/new-periodo.controller.js"></script>
-	<script src="controllers/professor/edit-professor.controller.js"></script>
-	<script src="controllers/professor/list-professores.controller.js"></script>
-	<script src="controllers/professor/new-professor.controller.js"></script>
-	<script src="controllers/turma/edit-turma.controller.js"></script>
-	<script src="controllers/turma/list-turmas.controller.js"></script>
-	<script src="controllers/turma/new-turma.controller.js"></script>
+	<script src="controllers/edit/edit-aluno.js"></script>
+	<script src="controllers/list/list-alunos.js"></script>
+	<script src="controllers/new/new-aluno.js"></script>
+	<script src="controllers/edit/edit-atividade.js"></script>
+	<script src="controllers/list/list-atividades.js"></script>
+	<script src="controllers/new/new-atividade.js"></script>
+	<script src="controllers/edit/edit-categoria.js"></script>
+	<script src="controllers/list/list-categorias.js"></script>
+	<script src="controllers/new/new-categoria.js"></script>
+	<script src="controllers/edit/edit-curso.js"></script>
+	<script src="controllers/list/list-cursos.js"></script>
+	<script src="controllers/new/new-curso.js"></script>
+	<script src="controllers/edit/edit-disciplina.js"></script>
+	<script src="controllers/list/list-disciplinas.js"></script>
+	<script src="controllers/new/new-disciplina.js"></script>
+	<script src="controllers/edit/edit-periodo.js"></script>
+	<script src="controllers/list/list-periodos.js"></script>
+	<script src="controllers/new/new-periodo.js"></script>
+	<script src="controllers/edit/edit-professor.js"></script>
+	<script src="controllers/list/list-professores.js"></script>
+	<script src="controllers/new/new-professor.js"></script>
+	<script src="controllers/edit/edit-turma.js"></script>
+	<script src="controllers/list/list-turmas.js"></script>
+	<script src="controllers/new/new-turma.js"></script>
 </body>
 </html>

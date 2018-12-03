@@ -18,6 +18,15 @@ import br.app.model.domain.CategoriaDoCurso;
 public class EditarCategoria extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int id = Integer.parseInt(request.getParameter("id"));		
+		CategoriaDoCurso categoria = new CategoriaDAO().findById(id);
+		String json = new Gson().toJson(categoria);
+		response.setContentType("application/json");
+		response.setCharacterEncoding("UTF-8");
+		response.getWriter().write(json);
+	}
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Gson json = new Gson();
 		CategoriaDoCurso categoria = new CategoriaDoCurso();
@@ -26,5 +35,4 @@ public class EditarCategoria extends HttpServlet{
 		new CategoriaDAO().update(categoria);
 		response.setStatus(HttpServletResponse.SC_OK);
 	}
-		
 }

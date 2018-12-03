@@ -14,11 +14,12 @@ public class DisciplinaDAO {
 		try {
 			Connection con = ConnectionFactory.getConnection();
 			
-			String sql = "INSERT INTO disciplina (nome, curso) VALUES (?, ?)";
+			String sql = "INSERT INTO disciplina (nome, tipo, curso) VALUES (?, ?, ?)";
 			
 			PreparedStatement cmd = con.prepareStatement(sql);
 			cmd.setString(1, disciplina.getNome());
-			cmd.setString(2, disciplina.getCurso());
+			cmd.setString(2, disciplina.getTipo());
+			cmd.setString(3, disciplina.getCurso());
 			
 			cmd.executeUpdate();
 			
@@ -34,12 +35,13 @@ public class DisciplinaDAO {
 		try {
 			Connection con = ConnectionFactory.getConnection();
 			
-			String sql = "UPDATE disciplina SET nome = ?, curso = ? WHERE id = ?";
+			String sql = "UPDATE disciplina SET nome = ?, tipo = ?, curso = ? WHERE id = ?";
 			
 			PreparedStatement cmd = con.prepareStatement(sql);
 			cmd.setString(1, disciplina.getNome());
-			cmd.setString(2, disciplina.getCurso());
-			cmd.setInt(3, disciplina.getId());
+			cmd.setString(2, disciplina.getTipo());
+			cmd.setString(3, disciplina.getCurso());
+			cmd.setInt(4, disciplina.getId());
 			cmd.executeUpdate();
 			
 		} catch (Exception e) {
@@ -82,6 +84,7 @@ public class DisciplinaDAO {
 				disciplina = new Disciplina();
 				disciplina.setId(rs.getInt("id"));
 				disciplina.setNome(rs.getString("nome"));
+				disciplina.setTipo(rs.getString("tipo"));
 				disciplina.setCurso(rs.getString("curso"));
 			}
 			
@@ -112,6 +115,7 @@ public class DisciplinaDAO {
 				Disciplina disciplina = new Disciplina();
 				disciplina.setId(rs.getInt("id"));
 				disciplina.setNome(rs.getString("nome"));
+				disciplina.setTipo(rs.getString("tipo"));
 				disciplina.setCurso(rs.getString("curso"));
 				
 				disciplinas.add(disciplina);

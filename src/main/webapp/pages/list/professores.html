@@ -18,12 +18,12 @@
 		</thead>
 		<tbody>
 	    	<tr ng-repeat="professor in professores | filter:professor">
-	    		<td>{{ professor.rgm }}</td>
+	    		<td>{{ professor.registro }}</td>
 	    		<td>{{ professor.nome }}</td>
-	    		<td>{{ professor.acesso }}</td>
+	    		<td>{{ professor.nvAcesso }}</td>
 	    		<td>{{ professor.email }}</td>
 		    	<td>
-		      		<a href="#!/professor/edit/{{ professor.rgm }}" class="btn btn-sm btn-primary">Editar</a>
+		      		<a href="#!/professor/edit/{{ professor.registro }}" class="btn btn-sm btn-primary">Editar</a>
 			  		<a href="#!/" class="btn btn-sm btn-primary">Excluir</a>
 				</td>
 			</tr>

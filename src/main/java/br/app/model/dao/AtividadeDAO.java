@@ -23,7 +23,7 @@ public class AtividadeDAO {
 			cmd.setString(4, atividade.getCurso());
 			cmd.setString(5, atividade.getDisciplina());
 			cmd.setString(6, atividade.getTrabalho());
-			cmd.setString(7, atividade.getQuantidade());
+			cmd.setInt(7, atividade.getQuantidade());
 			cmd.setString(8, atividade.getArquivo());//Arrumar aqui
 			cmd.setString(9, atividade.getDescricao());
 			
@@ -49,7 +49,7 @@ public class AtividadeDAO {
 			cmd.setString(3, atividade.getCurso());
 			cmd.setString(4, atividade.getDisciplina());
 			cmd.setString(5, atividade.getTrabalho());
-			cmd.setString(6, atividade.getQuantidade());
+			cmd.setInt(6, atividade.getQuantidade());
 			cmd.setString(7, atividade.getArquivo());//ARRUMAR AQUI.......
 			cmd.setString(8, atividade.getDescricao());
 			cmd.setString(9, atividade.getNome());
@@ -85,7 +85,7 @@ public class AtividadeDAO {
 		}
 	}
 	
-	public Atividade findByNome(int id) {
+	public Atividade findById(int id) {
 		try {
 			Connection con = ConnectionFactory.getConnection();
 			
@@ -107,7 +107,7 @@ public class AtividadeDAO {
 				atividade.setCurso(rs.getString("curso"));
 				atividade.setDisciplina(rs.getString("disciplina"));
 				atividade.setTrabalho(rs.getString("trabalho"));
-				atividade.setQuantidade(rs.getString("quantidade"));
+				atividade.setQuantidade(rs.getInt("quantidade"));
 				atividade.setArquivo(rs.getString("arquivo"));//ARRUMAR
 				atividade.setDescricao(rs.getString("descricao"));
 			}
@@ -144,7 +144,7 @@ public class AtividadeDAO {
 				atividade.setCurso(rs.getString("curso"));
 				atividade.setDisciplina(rs.getString("disciplina"));
 				atividade.setTrabalho(rs.getString("trabalho"));
-				atividade.setQuantidade(rs.getString("quantidade"));
+				atividade.setQuantidade(rs.getInt("quantidade"));
 				atividade.setArquivo(rs.getString("arquivo"));//ARRUMAR
 				atividade.setDescricao(rs.getString("descricao"));
 				

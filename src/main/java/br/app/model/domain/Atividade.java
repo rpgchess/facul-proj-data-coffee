@@ -8,7 +8,7 @@ public class Atividade {
 	private String curso;
 	private String disciplina;
 	private String trabalho;
-	private String quantidade;
+	private int quantidade;
 	private String nome;
 	private String arquivo;
 	private String descricao;
@@ -17,7 +17,7 @@ public class Atividade {
 		
 	}
 	
-	public Atividade(String data, String entrega, String curso, String disciplina, String trabalho, String quantidade, String nome, String arquivo, String descricao) {
+	public Atividade(String data, String entrega, String curso, String disciplina, String trabalho, int quantidade, String nome, String arquivo, String descricao) {
 		this.data = data;
 		this.entrega = entrega;
 		this.curso = curso;
@@ -77,11 +77,11 @@ public class Atividade {
 		this.trabalho = trabalho;
 	}
 
-	public String getQuantidade() {
+	public int getQuantidade() {
 		return quantidade;
 	}
 
-	public void setQuantidade(String quantidade) {
+	public void setQuantidade(int quantidade) {
 		this.quantidade = quantidade;
 	}
 

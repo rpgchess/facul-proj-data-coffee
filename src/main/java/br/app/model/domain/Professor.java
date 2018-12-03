@@ -1,7 +1,7 @@
 package br.app.model.domain;
 
 public class Professor {
-	private String registro;
+	private int registro;
 	private String nome;
 	private String email;
 	private String nvAcesso;
@@ -12,7 +12,7 @@ public class Professor {
 		
 	}
 	
-	public Professor(String registro, String nome, String email, String nvAcesso, String senha) {
+	public Professor(int registro, String nome, String email, String nvAcesso, String senha) {
 		this.registro = registro;
 		this.nome = nome;
 		this.email = email;
@@ -20,11 +20,11 @@ public class Professor {
 		this.senha = senha;
 	}
 
-	public String getRegistro() {
+	public int getRegistro() {
 		return registro;
 	}
 
-	public void setRegistro(String registro) {
+	public void setRegistro(int registro) {
 		this.registro = registro;
 	}
 

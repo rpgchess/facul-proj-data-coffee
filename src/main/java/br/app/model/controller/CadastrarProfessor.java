@@ -23,9 +23,13 @@ public class CadastrarProfessor extends HttpServlet {
 		Professor professor = new Professor();
 		BufferedReader reader = request.getReader();
 		professor = json.fromJson(reader, Professor.class);
-		new ProfessorDAO().create(professor);	
-		
+		new ProfessorDAO().create(professor);
+		response.setStatus(HttpServletResponse.SC_OK);
+		/*
+		String json2 = new Gson().toJson(professor);
+		response.setContentType("application/json");
+		response.setCharacterEncoding("UTF-8");
+		response.getWriter().write(json2);
+		*/
 	}
-
-	
 }

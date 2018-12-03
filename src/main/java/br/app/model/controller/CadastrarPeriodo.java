@@ -15,7 +15,7 @@ import br.app.model.dao.PeriodoDAO;
 import br.app.model.domain.Periodo;
 
 @WebServlet("/cadastrar-periodo")
-public class CadastrarPeriodo extends HttpServlet{
+public class CadastrarPeriodo extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -24,5 +24,12 @@ public class CadastrarPeriodo extends HttpServlet{
 		BufferedReader reader = request.getReader();
 		periodo = json.fromJson(reader, Periodo.class);
 		new PeriodoDAO().create(periodo);
+		response.setStatus(HttpServletResponse.SC_OK);
+		/*
+		String json2 = new Gson().toJson(periodo);
+		response.setContentType("application/json");
+		response.setCharacterEncoding("UTF-8");
+		response.getWriter().write(json2);
+		*/
 	}
 }

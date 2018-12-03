@@ -24,6 +24,13 @@ public class CadastrarDisciplina extends HttpServlet{
 		BufferedReader reader = request.getReader();
 		disciplina = json.fromJson(reader, Disciplina.class);
 		new DisciplinaDAO().create(disciplina);
+		response.setStatus(HttpServletResponse.SC_OK);
+		/*
+		String json2 = new Gson().toJson(disciplina);
+		response.setContentType("application/json");
+		response.setCharacterEncoding("UTF-8");
+		response.getWriter().write(json2);
+		*/
 	}
 
 }

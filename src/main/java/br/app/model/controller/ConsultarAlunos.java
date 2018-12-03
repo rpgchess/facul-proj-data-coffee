@@ -19,14 +19,13 @@ import br.app.model.domain.Aluno;
 public class ConsultarAlunos extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		List<Aluno> alunos = new ArrayList<Aluno>();
 		alunos = new AlunoDAO().findAll();
 		String json = new Gson().toJson(alunos);
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");
 		response.getWriter().write(json);
-		
 	}
 
 }

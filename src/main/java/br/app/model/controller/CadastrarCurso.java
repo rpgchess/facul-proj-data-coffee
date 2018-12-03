@@ -15,7 +15,7 @@ import br.app.model.dao.CursoDAO;
 import br.app.model.domain.Curso;
 
 @WebServlet("/cadastrar-curso")
-public class CadastrarCurso extends HttpServlet{
+public class CadastrarCurso extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -24,6 +24,13 @@ public class CadastrarCurso extends HttpServlet{
 		BufferedReader reader = request.getReader();
 		curso = json.fromJson(reader, Curso.class);
 		new CursoDAO().create(curso);
+		response.setStatus(HttpServletResponse.SC_OK);
+		/*
+		String json2 = new Gson().toJson(curso);
+		response.setContentType("application/json");
+		response.setCharacterEncoding("UTF-8");
+		response.getWriter().write(json2);
+		*/
 	}
 
 }

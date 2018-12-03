@@ -16,6 +16,10 @@
 					<p ng-show="frmDisc.name.$dirty && frmDisc.name.$error.required">Nome obrigatório</p>
 				</div>
 			</div>
+			<div class="form-group col-sm" ng-class="{ 'was-validated' : frmDisc.name.$invalid && !frmDisc.name.$pristine }">
+				<label for="type" class="control-label">Tipo:</label>
+				<select name="type" class="form-control" ng-model="type" ng-options="t.nome group by 'Itens:' for t in types"></select>
+			</div>
 			<div class="form-group col-sm">
 				<label for="curso" class="control-label">Curso:</label>
 				<select name="curso" class="form-control" ng-model="curso" ng-options="c.nome group by 'Itens:' for c in cursos"></select>

@@ -17,7 +17,7 @@
 	    	<tr ng-repeat="turma in turmas | filter:turma">
 	    		<td>{{ turma.nome }}</td>
 		    	<td>
-		      		<a href="#!/turma/edit/{{ $index }}" class="btn btn-sm btn-primary">Editar</a>
+		      		<a href="#!/turma/edit/{{ turma.id }}" class="btn btn-sm btn-primary">Editar</a>
 			  		<a href="#!/" class="btn btn-sm btn-primary">Excluir</a>
 				</td>
 			</tr>

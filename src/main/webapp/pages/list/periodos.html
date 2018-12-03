@@ -17,7 +17,7 @@
 	    	<tr ng-repeat="periodo in periodos | filter:periodo">
 	    		<td>{{ periodo.nome }}</td>
 		    	<td>
-		      		<a href="#!/periodo/edit/{{ $index }}" class="btn btn-sm btn-primary">Editar</a>
+		      		<a href="#!/periodo/edit/{{ periodo.id }}" class="btn btn-sm btn-primary">Editar</a>
 			  		<a href="#!/" class="btn btn-sm btn-primary">Excluir</a>
 				</td>
 			</tr>

@@ -25,6 +25,11 @@ public class CadastrarCategoria extends HttpServlet {
 		categoria = json.fromJson(reader, CategoriaDoCurso.class);
 		new CategoriaDAO().create(categoria);
 		response.setStatus(HttpServletResponse.SC_OK);
+		/*
+		String json2 = new Gson().toJson(categoria);
+		response.setContentType("application/json");
+		response.setCharacterEncoding("UTF-8");
+		response.getWriter().write(json2);
+		*/
 	}
-
 }

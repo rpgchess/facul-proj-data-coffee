@@ -59,12 +59,13 @@
 			</div>
 			<div class="form-group col-sm">
 				<label for="file" class="control-label">Anexar:</label>
-				<input type="file" name="file" ng-model="file" class="form-control-file" accept="application/pdf"/>
+				<input type="file" name="file" class="form-control-file" accept="application/pdf"
+				onchange="angular.element(this).scope().fileNameChanged(this)" />
 			</div>
 		</div>
 		<div class="form-row justify-content-center">
 			<div class="form-group col">
-				<label for="desc" class="control-label">Descrição:</label>
+				<label for="obs" class="control-label">Descrição:</label>
 				<textarea name="obs" ng-model="obs" rows="5" placeholder="..." class="form-control rounded-0"></textarea>
 			</div>
 		</div>
