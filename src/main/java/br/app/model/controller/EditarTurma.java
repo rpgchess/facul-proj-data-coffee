@@ -17,15 +17,6 @@ import br.app.model.domain.Turma;
 @WebServlet("/editar-turma")
 public class EditarTurma extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int id = Integer.parseInt(request.getParameter("id"));
-		Turma turma = new TurmaDAO().findById(id);
-		String json2 = new Gson().toJson(turma);
-		response.setContentType("application/json");
-		response.setCharacterEncoding("UTF-8");
-		response.getWriter().write(json2);
-	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Gson json = new Gson();

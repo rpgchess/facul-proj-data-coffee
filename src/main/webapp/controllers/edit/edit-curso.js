@@ -34,7 +34,7 @@ function editCurso($scope, $http, $routeParams, $rootScope, $location) {
         console.log(response.statusText);
     });
     
-    $http({ method: 'GET', url: $rootScope.url.edit.curso + '?id=' + $routeParams.obj, headers: { 'Content-Type': 'application/json' }
+    $http({ method: 'GET', url: $rootScope.url.curso + '?id=' + $routeParams.obj, headers: { 'Content-Type': 'application/json' }
     }).then(function success(response) {
         $scope.curso = response.data;
         $scope.abrev = $scope.curso.abrev;

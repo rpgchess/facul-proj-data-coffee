@@ -17,7 +17,7 @@ import br.app.model.domain.Turma;
 @WebServlet("/excluir-turma")
 public class ExcluirTurma extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Gson json = new Gson();
 		Turma turma = new Turma();
@@ -26,5 +26,4 @@ public class ExcluirTurma extends HttpServlet {
 		new TurmaDAO().delete(turma.getId());
 		response.setStatus(HttpServletResponse.SC_OK);
 	}
-
 }

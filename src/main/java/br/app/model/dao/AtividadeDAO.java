@@ -14,7 +14,7 @@ public class AtividadeDAO {
 		try {
 			Connection con = ConnectionFactory.getConnection();
 			
-			String sql = "INSERT INTO atividade (nome, data, entrega, curso, disciplina, trabalho, quantidade, arquivo, descricao) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+			String sql = "INSERT INTO atividade (nome, data, entrega, curso, disciplina, trabalho, turma, quantidade, arquivo, descricao, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 			
 			PreparedStatement cmd = con.prepareStatement(sql);
 			cmd.setString(1, atividade.getNome());
@@ -22,10 +22,12 @@ public class AtividadeDAO {
 			cmd.setString(3, atividade.getEntrega());
 			cmd.setString(4, atividade.getCurso());
 			cmd.setString(5, atividade.getDisciplina());
-			cmd.setString(6, atividade.getTrabalho());
-			cmd.setInt(7, atividade.getQuantidade());
-			cmd.setString(8, atividade.getArquivo());//Arrumar aqui
-			cmd.setString(9, atividade.getDescricao());
+			cmd.setString(6, atividade.getTurma());
+			cmd.setString(7, atividade.getTrabalho());
+			cmd.setInt(8, atividade.getQuantidade());
+			cmd.setString(9, atividade.getArquivo());
+			cmd.setString(10, atividade.getDescricao());
+			cmd.setString(11, atividade.getStatus());
 			
 			cmd.executeUpdate();
 			
@@ -41,19 +43,21 @@ public class AtividadeDAO {
 		try {
 			Connection con = ConnectionFactory.getConnection();
 			
-			String sql = "UPDATE atividade SET data = ?, entrega = ?, curso = ?, disciplina = ?, trabalho = ?, quantidade = ?," +
-					"arquivo = ?, descricao = ? , nome = ? WHERE id = ?";
+			String sql = "UPDATE atividade SET data = ?, entrega = ?, curso = ?, disciplina = ?, turma = ?, trabalho = ?, quantidade = ?," +
+					"arquivo = ?, descricao = ? , status = ?, nome = ? WHERE id = ?";
 			PreparedStatement cmd = con.prepareStatement(sql);
 			cmd.setString(1, atividade.getData());
 			cmd.setString(2, atividade.getEntrega());
 			cmd.setString(3, atividade.getCurso());
 			cmd.setString(4, atividade.getDisciplina());
-			cmd.setString(5, atividade.getTrabalho());
-			cmd.setInt(6, atividade.getQuantidade());
-			cmd.setString(7, atividade.getArquivo());//ARRUMAR AQUI.......
-			cmd.setString(8, atividade.getDescricao());
-			cmd.setString(9, atividade.getNome());
-			cmd.setInt(10, atividade.getId());
+			cmd.setString(5, atividade.getTurma());
+			cmd.setString(6, atividade.getTrabalho());
+			cmd.setInt(7, atividade.getQuantidade());
+			cmd.setString(8, atividade.getArquivo());
+			cmd.setString(9, atividade.getDescricao());
+			cmd.setString(10, atividade.getStatus());
+			cmd.setString(11, atividade.getNome());
+			cmd.setInt(12, atividade.getId());
 			
 			cmd.executeUpdate();
 			
@@ -106,10 +110,12 @@ public class AtividadeDAO {
 				atividade.setEntrega(rs.getString("entrega"));
 				atividade.setCurso(rs.getString("curso"));
 				atividade.setDisciplina(rs.getString("disciplina"));
+				atividade.setTurma(rs.getString("turma"));
 				atividade.setTrabalho(rs.getString("trabalho"));
 				atividade.setQuantidade(rs.getInt("quantidade"));
-				atividade.setArquivo(rs.getString("arquivo"));//ARRUMAR
+				atividade.setArquivo(rs.getString("arquivo"));
 				atividade.setDescricao(rs.getString("descricao"));
+				atividade.setStatus(rs.getString("status"));
 			}
 			
 			rs.close();
@@ -143,10 +149,12 @@ public class AtividadeDAO {
 				atividade.setEntrega(rs.getString("entrega"));
 				atividade.setCurso(rs.getString("curso"));
 				atividade.setDisciplina(rs.getString("disciplina"));
+				atividade.setTurma(rs.getString("turma"));
 				atividade.setTrabalho(rs.getString("trabalho"));
 				atividade.setQuantidade(rs.getInt("quantidade"));
-				atividade.setArquivo(rs.getString("arquivo"));//ARRUMAR
+				atividade.setArquivo(rs.getString("arquivo"));
 				atividade.setDescricao(rs.getString("descricao"));
+				atividade.setStatus(rs.getString("status"));
 				
 				atividades.add(atividade);
 			}

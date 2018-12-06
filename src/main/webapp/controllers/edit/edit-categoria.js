@@ -17,7 +17,7 @@ function editCategoria($scope, $http, $routeParams, $rootScope, $location) {
         $location.path('categoria/list');
     }
     
-    $http({ method: 'GET', url: $rootScope.url.edit.categoria + '?id=' + $routeParams.obj, headers: {'Content-Type': 'application/json; charset=utf-8'}
+    $http({ method: 'GET', url: $rootScope.url.categoria + '?id=' + $routeParams.obj, headers: {'Content-Type': 'application/json; charset=utf-8'}
     }).then(function success(response) {
         $scope.categoria = response.data;
         $scope.name = $scope.categoria.categoria;

@@ -1,6 +1,5 @@
 package br.app.model.controller;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -14,17 +13,13 @@ import com.google.gson.Gson;
 import br.app.model.dao.AtividadeDAO;
 import br.app.model.domain.Atividade;
 
-@WebServlet("/cadastrar-atividade")
-public class CadastrarAtividade extends HttpServlet{
+@WebServlet("/consultar-atividade")
+public class ConsultarAtividade extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Gson json = new Gson();
-		Atividade atividade = new Atividade();
-		BufferedReader reader = request.getReader();
-		atividade = json.fromJson(reader, Atividade.class);
-		new AtividadeDAO().create(atividade);
-		response.setStatus(HttpServletResponse.SC_OK);
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int id = Integer.parseInt(request.getParameter("id"));	
+		Atividade atividade = new AtividadeDAO().findById(id);
 		String json2 = new Gson().toJson(atividade);
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");

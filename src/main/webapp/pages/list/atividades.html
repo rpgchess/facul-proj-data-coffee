@@ -14,21 +14,21 @@
 			    <th scope="col"><input type="text" name="search" class="search" ng-model="atividade.nome" placeholder="Atividade"></th>
 			    <th scope="col">Curso</th>
 			    <th scope="col">Turma</th>
-			    <!-- <th scope="col">Situação</th> -->
+			    <th scope="col">Situação</th>
 			    <th scope="col" style="width:100px">Controle</th>
 		    </tr>
 		</thead>
 		<tbody>
 		    <tr ng-repeat="atividade in atividades | filter:atividade">
-			   	<td>{{ atividade.data }}</td>
-			   	<td>{{ atividade.entrega }}</td>
+			   	<td>{{ atividade.data | date:'dd/MM/yyyy' }}</td>
+			   	<td>{{ atividade.entrega | date:'dd/MM/yyyy' }}</td>
 			   	<td>{{ atividade.nome }}</td>
 			   	<td>{{ atividade.curso }}</td>
 			   	<td>{{ atividade.turma }}</td>
-			   	<!-- <td>Finalizado</td> -->
+			   	<td>{{ atividade.status }}</td>
 		    	<td>
-		      		<a href="#!/atividade/edit/{{ $index }}" class="btn btn-sm btn-primary">Editar</a>
-			  		<a href="#!/" class="btn btn-sm btn-primary">Excluir</a>
+		      		<a href="#!/atividade/edit/{{ atividade.id }}" class="btn btn-sm btn-primary">Editar</a>
+			  		<a href="#!/atividade/list" ng-click="deletar(atividade.id);" class="btn btn-sm btn-primary">Excluir</a>
 				</td>
 			</tr>
 		</tbody>

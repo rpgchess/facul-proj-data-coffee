@@ -31,6 +31,10 @@
 	height: 36px;
 }
 
+.content-wrapper textarea {
+	font-size: 14pt;
+}
+
 .content-wrapper thead .search {
 	border: 0px solid white;
 	background: transparent;

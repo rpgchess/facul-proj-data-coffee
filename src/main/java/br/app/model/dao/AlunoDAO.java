@@ -17,13 +17,14 @@ public class AlunoDAO {
 			Connection con = ConnectionFactory.getConnection();
 			
 			//2º Preparar o comando SQL a ser executado
-			String sql = "INSERT INTO aluno VALUES (?, ?, ?, ?, ?)";
+			String sql = "INSERT INTO aluno VALUES (?, ?, ?, ?, ?, ?)";
 			PreparedStatement cmd = con.prepareStatement(sql);
 			cmd.setInt(1, aluno.getRgm());
 			cmd.setString(2, aluno.getNome());
-			cmd.setString(3, aluno.getTurma());
-			cmd.setString(4, aluno.getPeriodo());
-			cmd.setString(5, aluno.getEmail());
+			cmd.setString(3, aluno.getCurso());
+			cmd.setString(4, aluno.getTurma());
+			cmd.setString(5, aluno.getPeriodo());
+			cmd.setString(6, aluno.getEmail());
 			
 			//3º Executar o comando SQL
 			cmd.executeUpdate();
@@ -44,13 +45,14 @@ public class AlunoDAO {
 			Connection con = ConnectionFactory.getConnection();
 			
 			//2º Preparar o comando SQL a ser executado
-			String sql = "UPDATE aluno SET nome = ?, turma = ?, periodo = ?, email = ? WHERE rgm = ?";
+			String sql = "UPDATE aluno SET nome = ?, curso = ?, turma = ?, periodo = ?, email = ? WHERE rgm = ?";
 			PreparedStatement cmd = con.prepareStatement(sql);
 			cmd.setString(1, aluno.getNome());
-			cmd.setString(2, aluno.getTurma());
-			cmd.setString(3, aluno.getPeriodo());
-			cmd.setString(4, aluno.getEmail());
-			cmd.setInt(5, aluno.getRgm());
+			cmd.setString(2, aluno.getCurso());
+			cmd.setString(3, aluno.getTurma());
+			cmd.setString(4, aluno.getPeriodo());
+			cmd.setString(5, aluno.getEmail());
+			cmd.setInt(6, aluno.getRgm());
 			
 			//3º Executar o comando SQL
 			cmd.executeUpdate();
@@ -110,6 +112,7 @@ public class AlunoDAO {
 				aluno = new Aluno();
 				aluno.setRgm(rs.getInt("rgm"));
 				aluno.setNome(rs.getString("nome"));
+				aluno.setCurso(rs.getString("curso"));
 				aluno.setTurma(rs.getString("turma"));
 				aluno.setPeriodo(rs.getString("periodo"));
 				aluno.setEmail(rs.getString("email"));
@@ -151,6 +154,7 @@ public class AlunoDAO {
 				Aluno aluno = new Aluno();
 				aluno.setRgm(rs.getInt("rgm"));
 				aluno.setNome(rs.getString("nome"));
+				aluno.setCurso(rs.getString("curso"));
 				aluno.setTurma(rs.getString("turma"));
 				aluno.setPeriodo(rs.getString("periodo"));
 				aluno.setEmail(rs.getString("email"));

@@ -17,7 +17,7 @@ function editTurma($scope, $http, $routeParams, $rootScope, $location) {
         $location.path('turma/list');
     }
     
-    $http({ method: 'GET', url: $rootScope.url.edit.turma + '?id=' + $routeParams.obj, headers: { 'Content-Type': 'application/json' }
+    $http({ method: 'GET', url: $rootScope.url.turma + '?id=' + $routeParams.obj, headers: { 'Content-Type': 'application/json' }
     }).then(function success(response) {
         $scope.turma = response.data;
         $scope.name = $scope.turma.nome;

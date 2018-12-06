@@ -17,7 +17,7 @@ function editPeriodo($scope, $http, $routeParams, $rootScope, $location) {
         $location.path('periodo/list');
     }
 
-    $http({ method: 'GET', url: $rootScope.url.edit.periodo + '?id=' + $routeParams.obj, headers: { 'Content-Type': 'application/json' }
+    $http({ method: 'GET', url: $rootScope.url.periodo + '?id=' + $routeParams.obj, headers: { 'Content-Type': 'application/json' }
     }).then(function success(response) {
         $scope.periodo = response.data;
         $scope.name = $scope.periodo.nome;

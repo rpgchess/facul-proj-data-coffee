@@ -35,6 +35,12 @@
 				<label for="disciplina" class="control-label">Disciplina:</label>
 				<select name="disciplina" class="form-control" ng-model="disciplina" ng-options="d.nome group by 'Itens:' for d in disciplinas"></select>
 			</div>
+			<div class="form-group col-sm">
+				<label for="turma" class="control-label">Turma:</label>
+				<select name="turma" class="form-control" ng-model="turma" ng-options="t.nome group by 'Itens:' for t in turmas"></select>
+			</div>
+		</div>
+		<div class="form-row justify-content-center">
 			<div class="form-group col-lg-4">
 				<fieldset name="" ng-init="opt = 1">
 					<legend>Trabalho:</legend>
@@ -47,9 +53,14 @@
 				<input type="number" name="grp-qtde" min="2" max="25" ng-disabled="opt != 2" placeholder="Qtde." class="form-control"
 				ng-model="grpQtde" />
 			</div>
+			<div class="form-group col-sm">
+				<label for="file" class="control-label">Anexar:</label>
+				<input type="file" name="file" class="form-control-file" accept="application/pdf"
+				onchange="angular.element(this).scope().fileNameChanged(this)" />
+			</div>
 		</div>
 		<div class="form-row justify-content-center">
-			<div class="form-group col-sm-6" ng-class="{ 'was-validated' : frmAtividade.name.$invalid && !frmAtividade.name.$pristine }">
+			<div class="form-group col-sm-8" ng-class="{ 'was-validated' : frmAtividade.name.$invalid && !frmAtividade.name.$pristine }">
 				<label for="name" class="control-label">Atividade:</label>
 				<input type="text" name="name" placeholder="Nome da Atividade" class="form-control"
 				required ng-model="name" maxlength="50" />
@@ -58,9 +69,8 @@
 				</div>
 			</div>
 			<div class="form-group col-sm">
-				<label for="file" class="control-label">Anexar:</label>
-				<input type="file" name="file" class="form-control-file" accept="application/pdf"
-				onchange="angular.element(this).scope().fileNameChanged(this)" />
+				<label for="status" class="control-label">Situação:</label>
+				<select name="status" class="form-control" ng-model="status" ng-options="s.nome group by 'Itens:' for s in allStatus"></select>
 			</div>
 		</div>
 		<div class="form-row justify-content-center">

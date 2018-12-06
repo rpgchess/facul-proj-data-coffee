@@ -32,7 +32,7 @@ function editProfessor($scope, $http, $routeParams, $rootScope, $location) {
         console.log(response.statusText);
     });
     
-    $http({ method: 'GET', url: $rootScope.url.edit.professor + '?id=' + $routeParams.obj, headers: { 'Content-Type': 'application/json' }
+    $http({ method: 'GET', url: $rootScope.url.professor + '?id=' + $routeParams.obj, headers: { 'Content-Type': 'application/json' }
     }).then(function success(response) {
         $scope.professor = response.data;
         $scope.rgm = $scope.professor.registro;

@@ -160,42 +160,11 @@ angular.module('dataCoffee', ['ngRoute'])
 			}
 		).when("/report/professor",
 			{
+				controller: "listReport",
 				templateUrl: "pages/report.html"
 			}
 		)
-		// Aluno
-		.when("/aluno/verify",
-			{
-				templateUrl: "aluno-valid.html"
-			}
-		).when("/aluno/make",
-			{
-				templateUrl: "aluno-make.html"
-			}
-		).when("/aluno/make/:obj",
-			{
-				templateUrl: "aluno-make.html"
-			}
-		).when("/grupo/list",
-			{
-				controller: "listGrupos",
-				templateUrl: "pages/list/grupos.html"
-			}
-		).when("/grupo/new",
-			{
-				controller: "newGrupo",
-				templateUrl: "pages/new/grupo.html"
-			}
-		).when("/grupo/edit/:obj",
-			{
-				controller: "editGrupo",
-				templateUrl: "pages/new/grupo.html"
-			}
-		).when("/report/aluno",
-			{
-				templateUrl: "aluno-report.html"
-			}
-		).otherwise(
+		.otherwise(
 			{
 				redirectTo: "/"
 			}
@@ -214,6 +183,7 @@ angular.module('dataCoffee', ['ngRoute'])
 	$rootScope.url.tipo.curso = $rootScope.url.base + "/data/tipos-curso.json";
 	$rootScope.url.tipo.acesso = $rootScope.url.base + "/data/tipos-acesso.json";
 	$rootScope.url.tipo.disciplina = $rootScope.url.base + "/data/tipos-disciplina.json";
+	$rootScope.url.tipo.situacao = $rootScope.url.base + "/data/tipos-situacao.json";
 
 	$rootScope.url.new.aluno = $rootScope.url.base + "/cadastrar-aluno";
 	$rootScope.url.new.atividade = $rootScope.url.base + "/cadastrar-atividade";
@@ -232,6 +202,15 @@ angular.module('dataCoffee', ['ngRoute'])
 	$rootScope.url.list.periodo = $rootScope.url.base + "/consultar-periodos";
 	$rootScope.url.list.professor = $rootScope.url.base + "/consultar-professores";
 	$rootScope.url.list.turma = $rootScope.url.base + "/consultar-turmas";
+
+	$rootScope.url.aluno = $rootScope.url.base + "/consultar-aluno";
+	$rootScope.url.atividade = $rootScope.url.base + "/consultar-atividade";
+	$rootScope.url.categoria = $rootScope.url.base + "/consultar-categoria";
+	$rootScope.url.curso = $rootScope.url.base + "/consultar-curso";
+	$rootScope.url.disciplina = $rootScope.url.base + "/consultar-disciplina";
+	$rootScope.url.periodo = $rootScope.url.base + "/consultar-periodo";
+	$rootScope.url.professor = $rootScope.url.base + "/consultar-professore";
+	$rootScope.url.turma = $rootScope.url.base + "/consultar-turma";
 
 	$rootScope.url.edit.aluno = $rootScope.url.base + "/editar-aluno";
 	$rootScope.url.edit.atividade = $rootScope.url.base + "/editar-atividade";

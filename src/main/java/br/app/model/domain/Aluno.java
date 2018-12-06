@@ -7,16 +7,26 @@ public class Aluno {
 	private String turma;
 	private String periodo;
 	private String email;
+	private String curso;
 	
 	public Aluno() {
 	}
 	
-	public Aluno(int rgm, String nome, String turma, String periodo, String email) {
+	public Aluno(int rgm, String nome, String curso, String turma, String periodo, String email) {
 		this.rgm = rgm;
 		this.nome = nome;
+		this.curso = curso;
 		this.turma = turma;
 		this.periodo = periodo;
 		this.email = email;
+	}
+
+	public String getCurso() {
+		return curso;
+	}
+
+	public void setCurso(String curso) {
+		this.curso = curso;
 	}
 
 	public int getRgm() {

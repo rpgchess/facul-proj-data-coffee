@@ -18,8 +18,10 @@ function newAtividade($scope, $http, $rootScope, $location) {
         $scope.grpQtde = 0;
         $scope.curso = $scope.cursos[0];
         $scope.disciplina = $scope.disciplinas[0];
+        $scope.turma = $scope.turmas[0];
         $scope.file = '';
         $scope.obs = '';
+        $scope.status = $scope.allStatus[0];
     }
 
     $scope.salvar = function() {
@@ -27,16 +29,12 @@ function newAtividade($scope, $http, $rootScope, $location) {
         if ($scope.opt != 2) $scope.grpQtde == 0;
         if ($scope.file == null) $scope.file == "";
         $scope.data = JSON.stringify({ nome : $scope.name, data : $scope.date, entrega : $scope.dateEnd, curso : $scope.curso.nome, disciplina : $scope.disciplina.nome, trabalho : $scope.opt, quantidade : $scope.grpQtde, arquivo : $scope.file, descricao : $scope.obs });
-        console.log($rootScope.url.new.atividade);
-        console.log($scope.data);
-        /*
     	$http({ method: 'POST', url: $rootScope.url.new.atividade, 
     		data: $scope.data,
     		headers: {'Content-Type': 'application/json; charset=utf-8'}
         });
         alertify.success("Adicionado com sucesso!");
         $location.path('atividade/list');
-        */
     }
     
     $http({ method: 'GET', url: $rootScope.url.list.curso, headers: { 'Content-Type': 'application/json' }
@@ -51,6 +49,22 @@ function newAtividade($scope, $http, $rootScope, $location) {
     }).then(function success(response) {
         $scope.disciplinas = response.data;
         $scope.disciplina = $scope.disciplinas[0];
+    }, function error(response) {
+        console.log(response.statusText);
+    });
+
+    $http({ method: 'GET', url: $rootScope.url.list.turma, headers: { 'Content-Type': 'application/json' }
+    }).then(function success(response) {
+        $scope.turmas = response.data;
+        $scope.turma = $scope.turmas[0];
+    }, function error(response) {
+        console.log(response.statusText);
+    });
+
+    $http({ method: 'GET', url: $rootScope.url.tipo.situacao, headers: { 'Content-Type': 'application/json' }
+    }).then(function success(response) {
+        $scope.allStatus = response.data;
+        $scope.status = $scope.allStatus[0];
     }, function error(response) {
         console.log(response.statusText);
     });

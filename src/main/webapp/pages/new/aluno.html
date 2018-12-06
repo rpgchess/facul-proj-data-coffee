@@ -27,10 +27,16 @@
 			</div>
 		</div>
 		<div class="form-row">
+		<div class="form-group col-sm">
+				<label for="curso" class="control-label">Curso:</label>
+				<select name="curso" class="form-control" ng-model="curso" ng-options="c.nome group by 'Itens:' for c in cursos"></select>
+			</div>
 			<div class="form-group col-sm-2">
 				<label for="turma" class="control-label">Turma:</label>
 				<select name="turma" class="form-control" ng-model="turma" ng-options="t.nome group by 'Itens:' for t in turmas"></select>
-			</div>
+			</div>			
+		</div>
+		<div class="form-row">
 			<div class="form-group col-sm-2">
 				<label for="periodo" class="control-label">Período:</label>
 				<select name="periodo" class="form-control" ng-model="periodo" ng-options="p.nome group by 'Itens:' for p in periodos"></select>

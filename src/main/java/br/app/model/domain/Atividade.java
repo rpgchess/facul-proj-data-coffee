@@ -7,11 +7,13 @@ public class Atividade {
 	private String entrega;
 	private String curso;
 	private String disciplina;
+	private String turma;
 	private String trabalho;
 	private int quantidade;
 	private String nome;
 	private String arquivo;
 	private String descricao;
+	private String status;
 	
 	public Atividade() {
 		
@@ -68,6 +70,14 @@ public class Atividade {
 	public void setDisciplina(String disciplina) {
 		this.disciplina = disciplina;
 	}
+	
+	public String getTurma() {
+		return turma;
+	}
+
+	public void setTurma(String turma) {
+		this.turma = turma;
+	}
 
 	public String getTrabalho() {
 		return trabalho;
@@ -109,5 +119,12 @@ public class Atividade {
 		this.descricao = descricao;
 	}
 	
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
 	
 }

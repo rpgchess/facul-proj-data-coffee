@@ -1,3 +1,22 @@
 <div class="container">
     <label for="title" class="control-label">RELATÓRIO</label>
+	<table class="table table-sm table-striped table-hover">
+		<thead class="thead-light">
+		    <tr>
+			    <th scope="col"><input type="text" name="search" class="search" ng-model="atividade.nome" placeholder="Pesquisar por nome da atividade"></th>
+		    </tr>
+		</thead>
+	</table>
+	<br>
+	<div class="list-group">
+		<div class="mb-3" ng-repeat="atividade in atividades | filter:atividade.nome ">
+			<td><a href="#!/report/professor" class="list-group-item list-group-item-action flex-column align-items-start">
+				<div class="d-flex w-100 justify-content-between">
+					<h5 class="mb-1">{{ atividade.nome }}</h5>
+					<small class="text-muted">{{ atividade.data | date:'dd/MM/yyyy' }}</small>
+				</div>
+				<p class="mb-1">{{ atividade.descricao }}</p> 
+			</a></td>
+		</div>
+	</div>
 </div>

@@ -6,13 +6,14 @@ function newAluno($scope, $http, $rootScope, $location) {
     $scope.reset = function (){
         $scope.rgm = '';
         $scope.name = '';
+        $scope.curso = $scope.cursos[0];
         $scope.periodo = $scope.periodos[0];
         $scope.turma = $scope.turmas[0];
         $scope.email = '';
     }
 
     $scope.salvar = function() {
-        $scope.data = JSON.stringify({ rgm : $scope.rgm, nome : $scope.name, turma : $scope.turma.nome, periodo : $scope.periodo.nome, email : $scope.email });
+        $scope.data = JSON.stringify({ rgm : $scope.rgm, nome : $scope.name, curso : $scope.curso.nome, turma : $scope.turma.nome, periodo : $scope.periodo.nome, email : $scope.email });
     	$http({ method: 'POST', url: $rootScope.url.new.aluno, 
     		data: $scope.data,
     		headers: {'Content-Type': 'application/json; charset=utf-8'}
@@ -25,6 +26,14 @@ function newAluno($scope, $http, $rootScope, $location) {
     }).then(function success(response) {
         $scope.periodos = response.data;
         $scope.periodo = $scope.periodos[0];
+    }, function error(response) {
+        console.log(response.statusText);
+    });
+    
+    $http({ method: 'GET', url: $rootScope.url.list.curso, headers: { 'Content-Type': 'application/json' }
+    }).then(function success(response) {
+        $scope.cursos = response.data;
+        $scope.curso = $scope.cursos[0];
     }, function error(response) {
         console.log(response.statusText);
     });

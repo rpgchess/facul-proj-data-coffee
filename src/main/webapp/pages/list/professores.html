@@ -24,7 +24,7 @@
 	    		<td>{{ professor.email }}</td>
 		    	<td>
 		      		<a href="#!/professor/edit/{{ professor.registro }}" class="btn btn-sm btn-primary">Editar</a>
-			  		<a href="#!/" class="btn btn-sm btn-primary">Excluir</a>
+			  		<a href="#!/professor/list" ng-click="deletar(professor.registro);" class="btn btn-sm btn-primary">Excluir</a>
 				</td>
 			</tr>
 		</tbody>

@@ -35,7 +35,7 @@ function editDisciplina($scope, $http, $routeParams, $rootScope, $location) {
         console.log(response.statusText);
     });
     
-    $http({ method: 'GET', url: $rootScope.url.edit.disciplina + '?id=' + $routeParams.obj, headers: { 'Content-Type': 'application/json' }
+    $http({ method: 'GET', url: $rootScope.url.disciplina + '?id=' + $routeParams.obj, headers: { 'Content-Type': 'application/json' }
     }).then(function success(response) {
         $scope.disciplina = response.data;
         $scope.name = $scope.disciplina.nome;

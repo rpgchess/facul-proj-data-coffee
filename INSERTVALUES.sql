@@ -1,9 +1,9 @@
-INSERT INTO aluno VALUES (18426581,"Claudio Almeida Martins","3B/4C","Noturno","claudio@gmail.com");
-INSERT INTO aluno VALUES (18508774,"Beatriz Martins Barbosa Filho","3B/4C","Noturno","beatriz@gmail.com");
-INSERT INTO aluno VALUES (18262066,"Davi Lourenço Mota","3B/4C","Noturno","davi@gmail.com");
-INSERT INTO aluno VALUES (18398537,"Lucas Santos Amaral","3B/4C","Noturno","lucas@gmail.com");
-INSERT INTO aluno VALUES (18269613,"Rafael Azzi Patricio","3B/4C","Noturno","rafael@gmail.com");
-INSERT INTO aluno VALUES (18555471,"Renan Afonso Valentim","3B/4C","Noturno","renan@gmail.com");
+INSERT INTO aluno VALUES (18426581,"Claudio Almeida Martins","Análise e Desenvolvimento de Sistemas","3B/4C","Noturno","claudio@gmail.com");
+INSERT INTO aluno VALUES (18508774,"Beatriz Martins Barbosa Filho","Análise e Desenvolvimento de Sistemas","3B/4C","Noturno","beatriz@gmail.com");
+INSERT INTO aluno VALUES (18262066,"Davi Lourenço Mota","Análise e Desenvolvimento de Sistemas","3B/4C","Noturno","davi@gmail.com");
+INSERT INTO aluno VALUES (18398537,"Lucas Santos Amaral","Análise e Desenvolvimento de Sistemas","3B/4C","Noturno","lucas@gmail.com");
+INSERT INTO aluno VALUES (18269613,"Rafael Azzi Patricio","Análise e Desenvolvimento de Sistemas","3B/4C","Noturno","rafael@gmail.com");
+INSERT INTO aluno VALUES (18555471,"Renan Afonso Valentim","Análise e Desenvolvimento de Sistemas","3B/4C","Noturno","renan@gmail.com");
 
 INSERT INTO categoriacurso VALUES (1,"Ciências Humanas e Educação");
 INSERT INTO categoriacurso VALUES (2,"Exatas");
@@ -11,9 +11,9 @@ INSERT INTO categoriacurso VALUES (3,"Geral");
 INSERT INTO categoriacurso VALUES (4,"Gestão e Negócios");
 INSERT INTO categoriacurso VALUES (5,"Saúde");
 
-INSERT INTO atividade VALUES (1,"Atividade de Teste","25/10/2018","--/--/----","Análise e Desenvolvimento de Sistemas","Análise e Projetos de Sistemas II","","","","");
-INSERT INTO atividade VALUES (2,"Atividade de Teste","17/11/2018","--/--/----","Análise e Desenvolvimento de Sistemas","Análise e Projetos de Sistemas II","","","","");
-INSERT INTO atividade VALUES (3,"Atividade de Teste","25/10/2018","17/11/2018","Análise e Desenvolvimento de Sistemas","Análise e Projetos de Sistemas II","","","","");
+INSERT INTO atividade VALUES (1,"Atividade de Teste","2018-10-25T02:00:00.000Z",NULL,"Análise e Desenvolvimento de Sistemas","Análise e Projetos de Sistemas II","","","","");
+INSERT INTO atividade VALUES (2,"Atividade de Teste","2018-11-15T02:00:00.000Z",NULL,"Análise e Desenvolvimento de Sistemas","Análise e Projetos de Sistemas II","","","","");
+INSERT INTO atividade VALUES (3,"Atividade de Teste","2018-10-25T02:00:00.000Z","2018-11-15T02:00:00.000Z","Análise e Desenvolvimento de Sistemas","Análise e Projetos de Sistemas II","","","","");
 
 INSERT INTO curso VALUES (1,"","Design de Produto","Tecnológico","Ciências Humanas e Educação");
 INSERT INTO curso VALUES (2,"","Design Gráfico","Tecnológico","Ciências Humanas e Educação");
